@@ -1,4 +1,4 @@
-package pragadeesh.niit.controller;
+package indhu.niit.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pragadeesh.niit.dao.CustomerDao;
-import pragadeesh.niit.models.Customer;
+import indhu.niit.dao.CustomerDao;
+import indhu.niit.models.Customer;
 
 @Controller
 public class CustomerController {

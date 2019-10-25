@@ -1,4 +1,4 @@
-package pragadeesh.niit.controller;
+package indhu.niit.controller;
 
 import java.security.Principal;
 import java.util.List;
@@ -11,9 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pragadeesh.niit.dao.CartItemDao;
-import pragadeesh.niit.dao.ProductDao;
-import pragadeesh.niit.models.CartItem;
+import indhu.niit.dao.CartItemDao;
+import indhu.niit.dao.ProductDao;
+import indhu.niit.models.CartItem;
 
 @Controller
 public class HomeController {

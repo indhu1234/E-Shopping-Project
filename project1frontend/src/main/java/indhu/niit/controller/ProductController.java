@@ -1,4 +1,4 @@
-package pragadeesh.niit.controller;
+package indhu.niit.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import pragadeesh.niit.dao.ProductDao;
-import pragadeesh.niit.models.Product;
+import indhu.niit.dao.ProductDao;
+import indhu.niit.models.Product;
 
 @Controller
 public class ProductController {

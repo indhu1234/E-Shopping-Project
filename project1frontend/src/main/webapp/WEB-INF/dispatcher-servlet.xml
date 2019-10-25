@@ -13,7 +13,7 @@
 <mvc:annotation-driven></mvc:annotation-driven>
 
 <!-- Context - ApplicationContext (spring container) -->
-<context:component-scan base-package="pragadeesh.niit"></context:component-scan>
+<context:component-scan base-package="indhu.niit"></context:component-scan>
 
 <!-- home -> /WEB-INF/views/home.jsp -->
 <!--  Bean to convert logical view name into an actual view name -->

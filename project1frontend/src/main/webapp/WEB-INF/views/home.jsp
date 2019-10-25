@@ -22,8 +22,8 @@
                     <img class="img-circle" src="resources/images/bg1.jpg" alt="Watches" height="100%" width="100%">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>THE WATCH KINGDOM WELCOMES YOU</h1>
-                            <p>SHOWCASING DIFFERENT VARITIES TO YOUR LIKING</p>
+                            <h1>WE WELCOMES YOU</h1>
+                            <p>So much of products will satisfy you</p>
                         </div>
                     </div>
                 </div>
@@ -31,8 +31,8 @@
                     <img class="img-circle" src="resources/images/bg2.jpg" alt="Watches" height="100%" width="100%">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>TIME WAITS FOR NONE</h1>
-                            <p>BETTER TO KEEP IT IN YOUR HANDS</p>
+                            <h1>Offers available</h1>
+                            <p>Offers applicable for different products</p>
                         </div>
                     </div>
                 </div>

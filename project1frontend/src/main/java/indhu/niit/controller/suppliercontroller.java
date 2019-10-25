@@ -1,4 +1,4 @@
-package pragadeesh.niit.controller;
+package indhu.niit.controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pragadeesh.niit.dao.SupplierDao;
-import pragadeesh.niit.models.Supplier;
+import indhu.niit.dao.SupplierDao;
+import indhu.niit.models.Supplier;
 
 @Controller
 public class suppliercontroller 
