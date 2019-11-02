@@ -21,12 +21,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import indhu.niit.dao.ProductDao;
+import indhu.niit.dao.SupplierDao;
 import indhu.niit.models.Product;
 
 @Controller
 public class ProductController {
 	@Autowired
 	private ProductDao productDao;
+	
+	@Autowired
+	private SupplierDao supplierdao;
 public ProductController(){
 	System.out.println("ProductController Bean is Created");
 }
@@ -67,6 +71,7 @@ public String deleteProduct(@PathVariable int id,Model model,HttpServletRequest 
 public String getproductform(Model model){
 	Product p=new Product();
 	model.addAttribute("product",p);
+	
 	model.addAttribute("categories",productDao.getAllCategories());
 	//In productform, access  the values of all the properties of product p
 	//in the form, p.getId(),p.getProductname(),p.getPrice(),p.getQuantity(),p.getProductdesc()

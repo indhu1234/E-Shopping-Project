@@ -19,7 +19,7 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img class="img-circle" src="resources/images/bg1.jpg" alt="Watches" height="100%" width="100%">
+                    <img class="img-circle" src="resources/images/carousel1.jpg" alt="Grocerries" height="100%" width="100%">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>WE WELCOMES YOU</h1>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="img-circle" src="resources/images/bg2.jpg" alt="Watches" height="100%" width="100%">
+                    <img class="img-circle" src="resources/images/carousel5.jpg" alt="Grocerries" height="100%" width="100%">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Offers available</h1>
@@ -37,20 +37,20 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="img-circle" src="resources/images/bg3.jpg" alt="Watches" height="100%" width="100%">
+                    <img class="img-circle" src="resources/images/carousel2.jpg" alt="Grocerries" height="100%" width="100%">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>LOVE YOUR WORK, MAKE TIME RELAX TO SEE THE WORLD</h1>
-                            <p>Invention Breeds Innovation!!</p>
+                           
                         </div>
                     </div>
                 </div>
                  <div class="item">
-                    <img class="img-circle" src="resources/images/bg4.jpg" alt="Watches" height="100%" width="100%">
+                    <img class="img-circle" src="resources/images/carousel3.jpg" alt="Grocerries" height="100%" width="100%">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>ENJOY YOUR WORK, MAKE TIME RELAX TO SEE THE WORLD</h1>
-                            <p>TIME IS OF THE ESSENCE!!!</p>
+                            
                         </div>
                     </div>
                 </div>

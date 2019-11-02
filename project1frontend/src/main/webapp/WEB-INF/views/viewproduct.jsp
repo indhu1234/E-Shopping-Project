@@ -20,7 +20,7 @@
 			<b>Product Desc:</b>${productObj.productdesc }<br>
 			<b>Price:</b>${productObj.price }<br>
 			<b>Quantity:</b>${productObj.quantity }<br>
-			<b>Category:</b>${productObj.category.categoryname}<br>
+			<b>Category:</b>${productObj.category.categoryName}<br>
 			<c:if test="${productObj.quantity==0 }">
 			<button class="btn btn-primary btn-lg" disabled>Out Of Stock</button>
 			</c:if>

@@ -45,7 +45,7 @@ $(document).ready(function(){
 						<td><a
 							href="<c:url value='/all/getproduct/${p.id }'></c:url>">${p.productname }</a></td>
 						<td>${p.price }</td>
-						<td>${p.category.categoryname }</td>
+						<td>${p.category.categoryName }</td>
 						<td>
 						
 						   <a href="<c:url value='/all/getproduct/${p.id }'></c:url>">

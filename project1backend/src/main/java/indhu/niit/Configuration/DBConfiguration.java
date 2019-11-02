@@ -12,6 +12,7 @@ import indhu.niit.models.Customer;
 import indhu.niit.models.Authorities;
 import indhu.niit.models.BillingAddress;
 import indhu.niit.models.ShippingAddress;
+import indhu.niit.models.Supplier;
 
 import java.util.Properties;
 
@@ -34,7 +35,7 @@ public class DBConfiguration
 		System.out.println("Entering DataSource Bean creation method ");
 	    BasicDataSource dataSource = new BasicDataSource();
 	    dataSource.setDriverClassName("org.h2.Driver");
-	    dataSource.setUrl("jdbc:h2:tcp://localhost/~/pragadish");
+	    dataSource.setUrl("jdbc:h2:tcp://localhost/~/eshop");
 	    dataSource.setUsername("sa");
 	    dataSource.setPassword("sa");
 	    System.out.println("DataSource bean " +dataSource);
@@ -55,7 +56,7 @@ public class DBConfiguration
 		lsf.addProperties(hibernateProperties);
 		//An array of Class objects of all the entities
 		//Map all entities to relational table
-		Class classes[]=new Class[]{Product.class,Category.class,CartItem.class,CustomerOrder.class,User.class,Customer.class,Authorities.class,BillingAddress.class,ShippingAddress.class}; //If product class is not yet created, remove this and add it later
+		Class classes[]=new Class[]{Product.class,Category.class,Supplier.class,CartItem.class,CustomerOrder.class,User.class,Customer.class,Authorities.class,BillingAddress.class,ShippingAddress.class}; //If product class is not yet created, remove this and add it later
 		//localsesionfactorybuilder -> sessionfactory -> map all entities with relation table
 		System.out.println("SessionFactory bean " + lsf);
 	    return lsf.addAnnotatedClasses(classes).buildSessionFactory();

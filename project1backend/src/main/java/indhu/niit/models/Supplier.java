@@ -4,14 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
 @Table
-
 public class Supplier {
 	@Id
 	@GeneratedValue
-	int supplierId;
-	
+	private int supplierId;
+	private String supplierName;
+	private String supplierDesc;
+
 	public int getSupplierId() {
 		return supplierId;
 	}
@@ -30,9 +32,7 @@ public class Supplier {
 	public void setSupplierDesc(String supplierDesc) {
 		this.supplierDesc = supplierDesc;
 	}
-	String supplierName;
-	String supplierDesc;
-
+	
 	
 	
 }

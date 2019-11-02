@@ -12,21 +12,31 @@ import javax.persistence.Table;
 public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-private int id;
-private String categoryname;
+private int categoryId;
+private String categoryName;
+private String categoryDesc;
 @OneToMany(mappedBy="category")
 private List<Product> products;
-public int getId() {
-	return id;
+
+
+
+public int getCategoryId() {
+	return categoryId;
 }
-public void setId(int id) {
-	this.id = id;
+public void setCategoryId(int categoryId) {
+	this.categoryId = categoryId;
 }
-public String getCategoryname() {
-	return categoryname;
+public String getCategoryName() {
+	return categoryName;
 }
-public void setCategoryname(String categoryname) {
-	this.categoryname = categoryname;
+public void setCategoryName(String categoryName) {
+	this.categoryName = categoryName;
+}
+public String getCategoryDesc() {
+	return categoryDesc;
+}
+public void setCategoryDesc(String categoryDesc) {
+	this.categoryDesc = categoryDesc;
 }
 public List<Product> getProducts() {
 	return products;

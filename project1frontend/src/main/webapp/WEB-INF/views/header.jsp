@@ -28,7 +28,7 @@
 	<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-				<a href="" class="navbar-brand"><img src="<c:url value='/resources/images/p8.jpg'></c:url>" alt="ESTORE" height="30px" width="30px"></a>
+				<a href="" class="navbar-brand"><img src="<c:url value='/resources/images/gro.png'></c:url>" alt="ESTORE" height="30px" width="30px"></a>
 			<button type="button" class="navbar-toggle collapsed" 
    data-toggle="collapse" data-target="#navbardemo" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -48,7 +48,7 @@
 					
 				<ul class="dropdown-menu">
 				<c:forEach items="${categories }" var="category">
-				<li><a href="<c:url value='/all/searchByCategory?searchCondition=${category.categoryname }'></c:url>">${category.categoryname }</a>
+				<li><a href="<c:url value='/all/searchByCategory?searchCondition=${category.categoryName }'></c:url>">${category.categoryName }</a>
 				</li>
 				
 				</c:forEach>
@@ -62,6 +62,15 @@
 			   <security:authorize access="hasRole('ROLE_ADMIN')">
 			   <li><a href="<c:url value='/admin/getproductform'></c:url>">Add Product</a></li>
 				</security:authorize>    
+			   
+			   <security:authorize access="hasRole('ROLE_ADMIN')">
+			   <li><a href="<c:url value='/admin/category'></c:url>">Add Category</a></li>
+				</security:authorize>    
+			   
+			   <security:authorize access="hasRole('ROLE_ADMIN')">
+			   <li><a href="<c:url value='/admin/supplier'></c:url>">Add Supplier</a></li>
+				</security:authorize>    
+			   
 			   
 			   <security:authorize access="hasRole('ROLE_USER')">
 			   <li><a href="<c:url value='/cart/getcart'></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span>(${cartSize})</a></li>
