@@ -16,10 +16,11 @@
 			<scope>test</scope>
 		</dependency>
 	  <dependency>
-         <groupId>com.niit</groupId>
-         <artifactId>project1backend</artifactId>
-         <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+        <groupId>com.niit</groupId>
+  		<artifactId>project1backend</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+            
+     </dependency>
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>

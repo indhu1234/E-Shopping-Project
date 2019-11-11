@@ -8,10 +8,12 @@ import java.security.Principal;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -38,6 +40,7 @@ public class CartItemController {
 private CartItemDao cartItemDao;
 	@Autowired
 	private ProductDao productDao;
+	
     @RequestMapping(value="/cart/addtocart/{productId}")//5
 	public String addToCart(@PathVariable int productId,@RequestParam int requestedQuantity
 			,@AuthenticationPrincipal Principal principal){//in jsp userPrincipal, in controller Principal
@@ -50,7 +53,7 @@ private CartItemDao cartItemDao;
 		for(CartItem cartItem:cartItems){
 			if(cartItem.getProduct().getId()==productId){
 				cartItem.setQuantity(requestedQuantity);
-				cartItem.setTotalPrice(requestedQuantity*product.getPrice());
+				cartItem.setPrice(requestedQuantity*product.getPrice());
 				cartItemDao.addToCart(cartItem);//update the quantity and totalprice
 				return "redirect:/cart/getcart";
 			}
@@ -61,7 +64,7 @@ private CartItemDao cartItemDao;
         cartItem.setProduct(product);
         cartItem.setUser(user);
         double totalPrice=requestedQuantity *product.getPrice();
-        cartItem.setTotalPrice(totalPrice);
+        cartItem.setPrice(totalPrice);
         cartItemDao.addToCart(cartItem);
     	return "redirect:/cart/getcart";
 	}
@@ -89,21 +92,47 @@ private CartItemDao cartItemDao;
 	public String editCategory(@PathVariable("cartItemId") int cartid,Model m)
 	{
 		CartItem cartitem=(CartItem) cartItemDao.getCartById(cartid);
+		
     	m.addAttribute("cartitem",cartitem);
 		return "updatecarts";
 	}
 	
-/*    @RequestMapping(value="/cart/updatecart/{cartItemId}")
-    public String updateCart(@PathVariable int cartItemId)
+   @RequestMapping(value="/cart/updateCart/{cartItemId}")
+    public String updateCart(@PathVariable("cartItemId") int cartitemId,@RequestParam("quantity") int quantity,Model m,HttpSession session )
     {
-    	cartItemDao.updateCart(cartItemId);
-    	//update from cartItem where cartitemid=?
+    	CartItem cartitem=cartItemDao.getCartById(cartitemId);
+    	cartitem.setQuantity(quantity);
+    	cartItemDao.updateCart(cartitem);
+    	String username=(String) session.getAttribute("username");
+    	List<CartItem> cartItemList=cartItemDao.getCart(username);
+    	m.addAttribute("listCartItems",cartItemList);
+    	m.addAttribute("total_Amount",this.totalCartValue(cartItemList));
+    	System.out.println("Sub Total : "+this.totalCartValue(cartItemList));
+    	System.out.println(cartitem.getQuantity());
+    	System.out.println(cartitem.getPrice());
+    	//update from cartItem where cartitemid=?	
     	//return "redirect:/cart/updatecarts";
-    	return "updatecarts";
+    	
+
+    	return "cart";	
     	//select * from cartitem where user_email=? - to execute the query redirect /cart/getcart
-    }*/
+    }
     
-    /*RequestMapping(value="/cart/updateCart",method=RequestMethod.POST)
+   public double totalCartValue(List<CartItem> cartItemList)
+   {
+	   double totalCost=0;
+	   int i=0;
+	   while(i<cartItemList.size())
+	   {
+		   CartItem cartitem=cartItemList.get(i);
+		   totalCost=totalCost+(cartitem.getPrice() * cartitem.getQuantity());
+		   i++;
+	   }
+	   System.out.println("Total Cost : "+totalCost);
+	   return totalCost;
+   }
+   
+  /*  RequestMapping(value="/cart/updateCart",method=RequestMethod.POST)
 	 public String updateCategory(Model m,@RequestParam("cartItemId")int cartid,@RequestParam("ProdName")String prodName,@RequestParam("ProdDesc")String proddesc,@RequestParam("Qty") int qty)
 	 {
 		 CartItem cartitem=cartItemDao.getCartById(cartid).getCategory(categoryID);
@@ -115,10 +144,22 @@ private CartItemDao cartItemDao;
 		 return "category";
 	 }*/
     
-    @RequestMapping(value="/cart/updateCart")
-    public String updateCart(@Valid @ModelAttribute CartItem cartitem,BindingResult result,Model model,HttpServletRequest request){//product will have updated values
+  /* @RequestMapping(value="/cart/updateCart")
+   public String updateCart(@ModelAttribute CartItem cartitem,Model m)
+   {
+	   System.out.println(cartitem.getQuantity());
+	   System.out.println(cartitem.getTotalPrice());
+	   cartItemDao.cartupdate(cartitem.getQuantity());
+	   m.addAttribute("cartItems",cartitem);
+	   
+	   return "cart";
+   }*/
+   
+   
+   /* public String updateCart(@Valid @ModelAttribute CartItem cartitem,BindingResult result,Model model,HttpServletRequest request){//product will have updated values
       
-    	cartItemDao.updateCart(cartitem.getQuantity());
+    	cartItemDao.updateCart(cartitem.getCartItemId());
+    	
     	
     	MultipartFile img=cartitem.getProduct().getImage();
     	System.out.println(request.getServletContext().getRealPath("/"));
@@ -127,20 +168,20 @@ private CartItemDao cartItemDao;
     	//transfer the image to the file
     	
      	return "cart";
-    }
+    }*/
+
+   
+
 
     
-
-
-    
-    
+   
     
     
     @RequestMapping(value="/cart/clearcart")
     public String clearCart(@AuthenticationPrincipal Principal principal){
     	//Get list of cartItems 
     	List<CartItem> cartItems=cartItemDao.getCart(principal.getName());
-    	for(CartItem cartItem:cartItems){
+     	for(CartItem cartItem:cartItems){
     		cartItemDao.removeCartItem(cartItem.getCartItemId());
     		//delete from cartItem where cartItemid=?
     	}
@@ -185,7 +226,7 @@ private CartItemDao cartItemDao;
     	
     	double grandTotal=0;
     	for(CartItem cartItem:cartItems){//for(T o:collection)
-    		grandTotal=grandTotal+cartItem.getTotalPrice();
+    		grandTotal=grandTotal+cartItem.getPrice();
     	}
     	
     	//create CustomerOrder object

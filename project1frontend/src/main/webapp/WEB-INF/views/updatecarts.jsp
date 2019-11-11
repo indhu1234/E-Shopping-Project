@@ -19,7 +19,7 @@
 			<div class="panel panel-body">
 			<c:url value="/cart/updateCart" var="url"></c:url>
 			<form action="${url}" >
-			<img src="<c:url value='/resources/images/${cartitem.product.getId()}.png'></c:url>"><br>
+			<img src="<c:url value='/resources/images/${cartitem.product.getId()}.jpg'></c:url>"><br>
 			<b>Product Name:</b>${cartitem.product.getProductname() }<br>
 		    <b>Product Desc:</b>${cartitem.product.getProductdesc() }<br> 
 			<b>Price:</b>${cartitem.product.getPrice() }<br>
@@ -30,7 +30,8 @@
 			</c:if>
 			<c:if test="${cartitem.product.getQuantity()>0 }">
 			<security:authorize access="hasRole('ROLE_USER')">
-			Enter Quantity:<input type="number" min="1" max="${cartitem.product.getQuantity() }" name="requestedQuantity">
+			<%-- Enter Quantity:<input type="number" min="1" max="${cartitem.getQuantity() }" name="requestedQuantity"> --%>
+			Enter Quantity:<input type="text" name="requestedQuantity" value=${cartitem.quantity }>
 			<!-- <button class="btn btn-primary btn-lg" type="submit"><span class="glyphicon glyphicon-shopping-cart" ></span>Add To Cart</button> -->
 			<input type="submit" value="Add To Cart" />
 			</security:authorize>
@@ -39,6 +40,8 @@
 			</div>
 		</div>
 	</div>
+	
+	$
 	<a href="<c:url value='/all/getallproducts'></c:url>">Browse all products</a>
 
 </body>

@@ -40,10 +40,10 @@
 			<form:errors path="quantity" cssStyle="color:red"></form:errors></td></tr>
 			<tr><td>Select the Category</td>
 			
-			<td><form:select path="category.id"><!-- FK column value -->
+			<td><form:select path="category.categoryId"><!-- FK column value -->
 			<!-- value is to set the value for the path category.id -->
 		    <c:forEach items="${categories }" var="c">
-		    <form:option value="${c.id }">${c.categoryname }</form:option>
+		    <form:option value="${c.categoryId }">${c.categoryName }</form:option>
 		    </c:forEach>
 			</form:select></td></tr>
 			<tr><td>Upload image</td><td>

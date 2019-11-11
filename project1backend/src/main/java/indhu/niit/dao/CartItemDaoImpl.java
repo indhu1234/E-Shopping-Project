@@ -50,15 +50,25 @@ private SessionFactory sessionFactory;
 		return customerOrder;
 	}
 	
-	public CartItem updateCart(int quantity) 
+	public boolean updateCart(CartItem cartitem)//quantity) 
 	{
-		Session session=sessionFactory.getCurrentSession();
-		CartItem cartItem=(CartItem)session.get(CartItem.class, quantity);
-		//session.update(cartItem);
-		Query query=session.createQuery("update CartItem set quantity= :quantity where cartItemId=?");
-		query.setParameter("quantity",quantity);
+		/*Session session=sessionFactory.getCurrentSession();
+		CartItem cartItem=(CartItem)session.get(CartItem.class, cartItemId); //quantity);
+		session.update(cartItem);
+		//Query query=session.createQuery("update CartItem set quantity= :quantity where cartItemId=?");
+		//query.setParameter("quantity",quantity);
+		
 		return cartItem;
-			
+		*/
+		try
+		{
+			sessionFactory.getCurrentSession().update(cartitem);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
 	
 	}
 	@Override
@@ -68,6 +78,17 @@ private SessionFactory sessionFactory;
 		CartItem cartitem=(CartItem) session.get(CartItem.class,cartItemId);
 		session.close();
 		return cartitem;
+	}
+	@Override
+	public CartItem cartupdate(int quantity) 
+	{
+		Session session=sessionFactory.getCurrentSession();
+		CartItem cartItem=(CartItem)session.get(CartItem.class, quantity); //quantity);
+		session.update(cartItem);
+		//Query query=session.createQuery("update CartItem set quantity= :quantity where cartItemId=?");
+		//query.setParameter("quantity",quantity);
+		
+		return cartItem;
 	}
 
 }
