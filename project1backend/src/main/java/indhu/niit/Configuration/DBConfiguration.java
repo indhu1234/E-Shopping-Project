@@ -7,7 +7,9 @@ import indhu.niit.models.Product;
 import indhu.niit.models.Category;
 import indhu.niit.models.CartItem;
 import indhu.niit.models.CustomerOrder;
+import indhu.niit.models.OrderDetail;
 import indhu.niit.models.User;
+import indhu.niit.models.UserDetail;
 import indhu.niit.models.Customer;
 import indhu.niit.models.Authorities;
 import indhu.niit.models.BillingAddress;
@@ -56,7 +58,7 @@ public class DBConfiguration
 		lsf.addProperties(hibernateProperties);
 		//An array of Class objects of all the entities
 		//Map all entities to relational table
-		Class classes[]=new Class[]{Product.class,Category.class,Supplier.class,CartItem.class,CustomerOrder.class,User.class,Customer.class,Authorities.class,BillingAddress.class,ShippingAddress.class}; //If product class is not yet created, remove this and add it later
+		Class classes[]=new Class[]{Product.class,Category.class,Supplier.class,CartItem.class,CustomerOrder.class,User.class,Customer.class,Authorities.class,BillingAddress.class,ShippingAddress.class,OrderDetail.class,UserDetail.class}; //If product class is not yet created, remove this and add it later
 		//localsesionfactorybuilder -> sessionfactory -> map all entities with relation table
 		System.out.println("SessionFactory bean " + lsf);
 	    return lsf.addAnnotatedClasses(classes).buildSessionFactory();

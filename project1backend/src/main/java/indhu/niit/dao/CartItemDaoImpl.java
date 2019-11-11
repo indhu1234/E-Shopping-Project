@@ -17,7 +17,72 @@ import indhu.niit.models.User;
 public class CartItemDaoImpl implements CartItemDao {
 	@Autowired
 private SessionFactory sessionFactory;
-	public void addToCart(CartItem cartItem) {
+
+	@Override
+	public boolean addToCart(CartItem cartItem) 
+	{
+	
+		try
+		{
+			sessionFactory.getCurrentSession().save(cartItem);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+
+	@Override
+	public boolean deleteCartItem(CartItem cartItem) {
+		
+		try
+		{
+			sessionFactory.getCurrentSession().delete(cartItem);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+
+	@Override
+	public boolean updateCartItem(CartItem cartItem) {
+	
+		try
+		{
+			sessionFactory.getCurrentSession().update(cartItem);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+		
+	}
+
+	@Override
+	public List<CartItem> listCartItems(String username) {
+	
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Cart where username=:uname and status='NP'");
+		query.setParameter("uname", username);
+		List<CartItem> cartItemList=query.list();
+		session.close();
+		return cartItemList;
+	}
+
+	@Override
+	public CartItem getCartItem(int cartItemId) {
+		
+		Session session=sessionFactory.openSession();
+		CartItem cartItem=(CartItem) session.get(CartItem.class, cartItemId);
+		session.close();
+		return cartItem;
+	}
+	
+	/*public void addToCart(CartItem cartItem) {
 		Session session=sessionFactory.getCurrentSession();
 		session.saveOrUpdate(cartItem);
 	}
@@ -52,14 +117,14 @@ private SessionFactory sessionFactory;
 	
 	public boolean updateCart(CartItem cartitem)//quantity) 
 	{
-		/*Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.getCurrentSession();
 		CartItem cartItem=(CartItem)session.get(CartItem.class, cartItemId); //quantity);
 		session.update(cartItem);
 		//Query query=session.createQuery("update CartItem set quantity= :quantity where cartItemId=?");
 		//query.setParameter("quantity",quantity);
 		
 		return cartItem;
-		*/
+		
 		try
 		{
 			sessionFactory.getCurrentSession().update(cartitem);
@@ -90,5 +155,8 @@ private SessionFactory sessionFactory;
 		
 		return cartItem;
 	}
-
+*/
+	
+	
+	
 }

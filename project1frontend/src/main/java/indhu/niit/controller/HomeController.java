@@ -30,8 +30,9 @@ public HomeController(){
 public String homePage(HttpSession session,@AuthenticationPrincipal Principal principal){
 	session.setAttribute("categories",productDao.getAllCategories());
 	if(principal!=null){
-	String email=principal.getName();
-	List<CartItem> cartItems=cartItemDao.getCart(email);
+	//String email=principal.getName();
+		String username=(String) session.getAttribute("username");
+	List<CartItem> cartItems=cartItemDao.listCartItems(username);
 	session.setAttribute("cartSize",cartItems.size());
 	}
 	return "home";

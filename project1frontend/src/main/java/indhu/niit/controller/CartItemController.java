@@ -43,13 +43,14 @@ private CartItemDao cartItemDao;
 	
     @RequestMapping(value="/cart/addtocart/{productId}")//5
 	public String addToCart(@PathVariable int productId,@RequestParam int requestedQuantity
-			,@AuthenticationPrincipal Principal principal){//in jsp userPrincipal, in controller Principal
+			,@AuthenticationPrincipal Principal principal,HttpSession session){//in jsp userPrincipal, in controller Principal
     	if(principal==null)
     		return "login";
-		String email=principal.getName();
+		//String email=principal.getName();
+    	String username=(String) session.getAttribute("username");
 		Product product=productDao.getProduct(productId);
-		User user=cartItemDao.getUser(email);
-		List<CartItem> cartItems=cartItemDao.getCart(email);
+		//User user=cartItemDao.getUser(username);
+		List<CartItem> cartItems=cartItemDao.listCartItems(username);
 		for(CartItem cartItem:cartItems){
 			if(cartItem.getProduct().getId()==productId){
 				cartItem.setQuantity(requestedQuantity);
@@ -62,7 +63,7 @@ private CartItemDao cartItemDao;
 		CartItem cartItem=new CartItem();
 		cartItem.setQuantity(requestedQuantity);
         cartItem.setProduct(product);
-        cartItem.setUser(user);
+        cartItem.setUsername(username);
         double totalPrice=requestedQuantity *product.getPrice();
         cartItem.setPrice(totalPrice);
         cartItemDao.addToCart(cartItem);
@@ -73,41 +74,47 @@ private CartItemDao cartItemDao;
     	if(principal==null)
     		return "login";
     	CartItem cartitem=new CartItem();
-    	String email=principal.getName();
+    	//String email=principal.getName();
+    	String username=(String) session.getAttribute("username");
     	model.addAttribute(cartitem);
-    	List<CartItem> cartItems=cartItemDao.getCart(email);
+    	List<CartItem> cartItems=cartItemDao.listCartItems(username);
     	model.addAttribute("cartItems",cartItems);
+    	model.addAttribute("total_Amount",this.totalCartValue(cartItems));
+    	model.addAttribute("username",username);
     	session.setAttribute("cartSize", cartItems.size());
+    	
     	return "cart";
     }
     @RequestMapping(value="/cart/removecartitem/{cartItemId}")
     public String removeCartItem(@PathVariable int cartItemId){
-    	cartItemDao.removeCartItem(cartItemId);
+    	CartItem cartItem=cartItemDao.getCartItem(cartItemId);
+    	cartItemDao.deleteCartItem(cartItem);
     	//delete from cartItem where cartitemid=?
     	return "redirect:/cart/getcart";
     	
     	//select * from cartitem where user_email=? - to execute the query redirect /cart/getcart
     }
-    @RequestMapping(value="/cart/editCart/{cartItemId}")
+   /* @RequestMapping(value="/cart/editCart/{cartItemId}")
 	public String editCategory(@PathVariable("cartItemId") int cartid,Model m)
 	{
-		CartItem cartitem=(CartItem) cartItemDao.getCartById(cartid);
+		CartItem cartitem=(CartItem) cartItemDao.updateCartItem(cartItem);
 		
     	m.addAttribute("cartitem",cartitem);
 		return "updatecarts";
-	}
+	}*/
 	
    @RequestMapping(value="/cart/updateCart/{cartItemId}")
     public String updateCart(@PathVariable("cartItemId") int cartitemId,@RequestParam("quantity") int quantity,Model m,HttpSession session )
     {
-    	CartItem cartitem=cartItemDao.getCartById(cartitemId);
+    	CartItem cartitem=cartItemDao.getCartItem(cartitemId);
     	cartitem.setQuantity(quantity);
-    	cartItemDao.updateCart(cartitem);
+    	cartItemDao.updateCartItem(cartitem);
+    	//String email=cartitem.getUser().getEmail();
     	String username=(String) session.getAttribute("username");
-    	List<CartItem> cartItemList=cartItemDao.getCart(username);
+    	List<CartItem> cartItemList=cartItemDao.listCartItems(username);
     	m.addAttribute("listCartItems",cartItemList);
     	m.addAttribute("total_Amount",this.totalCartValue(cartItemList));
-    	System.out.println("Sub Total : "+this.totalCartValue(cartItemList));
+    	System.out.println("Sub Total : "+totalCartValue(cartItemList));
     	System.out.println(cartitem.getQuantity());
     	System.out.println(cartitem.getPrice());
     	//update from cartItem where cartitemid=?	
@@ -124,11 +131,12 @@ private CartItemDao cartItemDao;
 	   int i=0;
 	   while(i<cartItemList.size())
 	   {
-		   CartItem cartitem=cartItemList.get(i);
-		   totalCost=totalCost+(cartitem.getPrice() * cartitem.getQuantity());
+		  /* CartItem cartitem=cartItemList.get(i);
+		   totalCost=totalCost+(cartItemList.getPrice() * cartitemList.getQuantity());*/
+		   totalCost+=(cartItemList.get(i).getQuantity() * cartItemList.get(i).getPrice());
 		   i++;
 	   }
-	   System.out.println("Total Cost : "+totalCost);
+	   //System.out.println("Total Cost : "+totalCost);
 	   return totalCost;
    }
    
@@ -177,7 +185,7 @@ private CartItemDao cartItemDao;
    
     
     
-    @RequestMapping(value="/cart/clearcart")
+   /* @RequestMapping(value="/cart/clearcart")
     public String clearCart(@AuthenticationPrincipal Principal principal){
     	//Get list of cartItems 
     	List<CartItem> cartItems=cartItemDao.getCart(principal.getName());
@@ -197,8 +205,8 @@ private CartItemDao cartItemDao;
     	ShippingAddress shippingAddress=customer.getShippingaddress();
     	model.addAttribute("shippingaddress",shippingAddress);
     	return "shippingaddress";
-    }
-    @RequestMapping(value="/cart/createorder")
+    }*/
+    /*@RequestMapping(value="/cart/createorder")
     public String createCustomerOrder(@ModelAttribute ShippingAddress shippingaddress,
     		Model model,
     		@AuthenticationPrincipal Principal principal,HttpSession session){
@@ -256,5 +264,18 @@ private CartItemDao cartItemDao;
     	session.setAttribute("cartSize", 0);
     	return "orderDetails";
     }
+    */
+    
+    @RequestMapping(value="/confirmOrder")
+    public String confirmOrder(Model m,HttpSession session)
+    {
+    	String username=(String) session.getAttribute("username");
+    	List<CartItem> cartItemList=cartItemDao.listCartItems(username);
+    	m.addAttribute("listCartItems",cartItemList);
+    	m.addAttribute("total_Amount",this.totalCartValue(cartItemList));
+    	return "orderDetails";
+    	
+    }
+    
 }
 

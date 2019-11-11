@@ -18,7 +18,7 @@ Clear Cart
 </c:if>
 <table class="table table-striped">
 <thead id="thead">
- <tr><th>Cartitem Id</th><th>Quantity</th><th>Price</th><th>Total Pri 	ce</th><th>Operations</th> 
+ <tr><th>Cartitem Id</th><th>Quantity</th><th>Price</th><th>Total Price</th><th>Operations</th> 
 </tr>
 </thead>
 <c:set var="grandTotal" value="0"></c:set>
@@ -101,7 +101,7 @@ Clear Cart
                         <td>   </td>
                         <td>   </td>
                         <td>
-                        <a href="<c:url value="/productdisplay"/>" class="btn btn-default">
+                        <a href="<c:url value="/all/getallproducts"/>" class="btn btn-default">
                             <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                         </a></td>
                         <td>
