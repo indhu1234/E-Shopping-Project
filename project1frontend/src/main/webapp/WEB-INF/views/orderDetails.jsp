@@ -14,25 +14,28 @@
 <div class="container-wrapper">
     <div class="container">
     
-       	<div style="background-color:orange">
-		<h2 align="center">Your Cart</h2>
+       	<div style="background-color:Blue">
+		<h2 align="center">Products Purchased </h2>
 	</div>
 	
     <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
+        <form action="<c:url value="/updateCartItem/${cartItem.cartItemId}"/>" method="get">
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>Product</th>
                         <th>Quantity</th>
+                        <th>Units</th>
                         <th class="text-center">Price</th>
                         <th class="text-center">Total</th>
                         <th> </th>
                     </tr>
                 </thead>
                 <tbody>
-                	<c:forEach items="${listCartItems}" var="cartItem">
-                	<form action="<c:url value="/updateCartItem/${cartItem.cartItemId}"/>" method="get">
+                	
+                	
+                    <c:forEach items="${listCartItems}" var="cartItem">
                     <tr>
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
@@ -46,8 +49,9 @@
                         <td class="col-sm-1 col-md-1" style="text-align: center">
                        		${cartItem.quantity}
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.price}</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.price * cartItem.quantity}</strong></td>
+                        <td>${cartItem.product.units } </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.price}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.price * cartItem.quantity}</strong></td>
                      </tr>
                      </form>
                 	</c:forEach>
@@ -78,7 +82,7 @@
                             <span class="glyphicon glyphicon-shopping-cart"></span> Edit Cart
                         </a></td>
                         <td>
-                         <a href="<c:url value="/payment"/>" class="btn btn-default">
+                         <a href="<c:url value='/cart/payment'></c:url>" class="btn btn-default" />
                            Checkout <span class="glyphicon glyphicon-play"></span>
                         </button></td>
                     </tr>

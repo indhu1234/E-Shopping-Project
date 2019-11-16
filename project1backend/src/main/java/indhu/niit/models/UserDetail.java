@@ -14,11 +14,35 @@ public class UserDetail
 	String password;
 
 	String customerName;
-	String address;
+	String street;
+	String city;
+	String zip;
+	
 	String emailId;
 	String mobileNo;
 	String role;
 	boolean enabled;
+	
+	
+	
+	public String getStreet() {
+		return street;
+	}
+	public void setStreet(String street) {
+		this.street = street;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getZip() {
+		return zip;
+	}
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -37,12 +61,7 @@ public class UserDetail
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	
 	public String getEmailId() {
 		return emailId;
 	}

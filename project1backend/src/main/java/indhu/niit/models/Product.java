@@ -25,10 +25,22 @@ private String productdesc;
 private int quantity;
 	@Min(value=1,message="Minimum value for price is 1")
 private double price;
+	private String units;
 @ManyToOne
 private Category category;
 @Transient
 private MultipartFile image;
+
+
+
+
+
+public String getUnits() {
+	return units;
+}
+public void setUnits(String units) {
+	this.units = units;
+}
 public int getId() {
 	return id;
 }

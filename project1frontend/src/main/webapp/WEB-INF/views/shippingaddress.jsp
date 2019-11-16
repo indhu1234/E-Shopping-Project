@@ -15,10 +15,10 @@
 		$('#form').validate({
 			rules:{
 				"apartmentnumber":{required:true},
-				"streetname":{required:true},
-				"state":{required:true},
+				"street":{required:true},
+				
 				"city":{required:true},
-				"country":{required:true},
+				
 				"zipcode":{required:true,number:true}
 			}
 		})

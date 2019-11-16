@@ -13,14 +13,25 @@ public class CartItem {
 private int cartItemId;
 	@ManyToOne
 private Product product;
-	@ManyToOne
+	
 
+private int orderId;
 	
 public double getPrice() {
 		return price;
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	
+	
+	
+	
+	public int getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
 	}
 	public String getUsername() {
 		return username;
@@ -37,6 +48,7 @@ public double getPrice() {
 private int quantity;
 private double price;
 String username;
+
 String status;
 
 public int getCartItemId() {

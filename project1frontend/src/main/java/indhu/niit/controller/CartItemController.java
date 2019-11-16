@@ -15,24 +15,32 @@ import javax.validation.Valid;
 
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import indhu.niit.dao.CartItemDao;
+import indhu.niit.dao.OrderDao;
 import indhu.niit.dao.ProductDao;
+import indhu.niit.dao.UserDao;
 import indhu.niit.models.CartItem;
 import indhu.niit.models.Customer;
 import indhu.niit.models.CustomerOrder;
+import indhu.niit.models.OrderDetail;
 import indhu.niit.models.Product;
 import indhu.niit.models.ShippingAddress;
 import indhu.niit.models.User;
+import indhu.niit.models.UserDetail;
 
 @Controller
 public class CartItemController {
@@ -41,13 +49,20 @@ private CartItemDao cartItemDao;
 	@Autowired
 	private ProductDao productDao;
 	
+	
     @RequestMapping(value="/cart/addtocart/{productId}")//5
 	public String addToCart(@PathVariable int productId,@RequestParam int requestedQuantity
-			,@AuthenticationPrincipal Principal principal,HttpSession session){//in jsp userPrincipal, in controller Principal
+			,@AuthenticationPrincipal Principal principal,HttpSession session, Model m){//in jsp userPrincipal, in controller Principal
     	if(principal==null)
     		return "login";
+    	SecurityContext scontext=SecurityContextHolder.getContext();
+    	Authentication authentication=scontext.getAuthentication();
+		String username=authentication.getName();
+
+		session.setAttribute("username", username);
 		//String email=principal.getName();
-    	String username=(String) session.getAttribute("username");
+       	String uname=(String) session.getAttribute("username");
+    	System.out.println("User Is : "+uname);
 		Product product=productDao.getProduct(productId);
 		//User user=cartItemDao.getUser(username);
 		List<CartItem> cartItems=cartItemDao.listCartItems(username);
@@ -64,6 +79,7 @@ private CartItemDao cartItemDao;
 		cartItem.setQuantity(requestedQuantity);
         cartItem.setProduct(product);
         cartItem.setUsername(username);
+        cartItem.setStatus("NP");
         double totalPrice=requestedQuantity *product.getPrice();
         cartItem.setPrice(totalPrice);
         cartItemDao.addToCart(cartItem);
@@ -75,9 +91,17 @@ private CartItemDao cartItemDao;
     		return "login";
     	CartItem cartitem=new CartItem();
     	//String email=principal.getName();
-    	String username=(String) session.getAttribute("username");
+    	
+    	SecurityContext scontext=SecurityContextHolder.getContext();
+    	Authentication authentication=scontext.getAuthentication();
+		String username=authentication.getName();
+
+		session.setAttribute("username", username);
+
+    	
+    	String uname=(String) session.getAttribute("username");
     	model.addAttribute(cartitem);
-    	List<CartItem> cartItems=cartItemDao.listCartItems(username);
+    	List<CartItem> cartItems=cartItemDao.listCartItems(uname);
     	model.addAttribute("cartItems",cartItems);
     	model.addAttribute("total_Amount",this.totalCartValue(cartItems));
     	model.addAttribute("username",username);
@@ -109,11 +133,20 @@ private CartItemDao cartItemDao;
     	CartItem cartitem=cartItemDao.getCartItem(cartitemId);
     	cartitem.setQuantity(quantity);
     	cartItemDao.updateCartItem(cartitem);
+    	SecurityContext scontext=SecurityContextHolder.getContext();
+    	Authentication authentication=scontext.getAuthentication();
+		String username=authentication.getName();
+
+		session.setAttribute("username", username);
+
+    	
     	//String email=cartitem.getUser().getEmail();
-    	String username=(String) session.getAttribute("username");
-    	List<CartItem> cartItemList=cartItemDao.listCartItems(username);
-    	m.addAttribute("listCartItems",cartItemList);
+    	String uname=(String) session.getAttribute("username");
+    	List<CartItem> cartItemList=cartItemDao.listCartItems(uname);
+    	m.addAttribute("cartItems",cartItemList);
     	m.addAttribute("total_Amount",this.totalCartValue(cartItemList));
+    	
+    	
     	System.out.println("Sub Total : "+totalCartValue(cartItemList));
     	System.out.println(cartitem.getQuantity());
     	System.out.println(cartitem.getPrice());
@@ -131,12 +164,13 @@ private CartItemDao cartItemDao;
 	   int i=0;
 	   while(i<cartItemList.size())
 	   {
-		  /* CartItem cartitem=cartItemList.get(i);
-		   totalCost=totalCost+(cartItemList.getPrice() * cartitemList.getQuantity());*/
-		   totalCost+=(cartItemList.get(i).getQuantity() * cartItemList.get(i).getPrice());
+		   CartItem cartitem=cartItemList.get(i);
+		   totalCost=totalCost+(cartitem.getProduct().getPrice() * cartitem.getQuantity());
+		  // totalCost+=(cartItemList.get(i).getQuantity() * cartItemList.get(i).getPrice());
+		  // totalCost+=(cartItemList.get(i).getPrice());
 		   i++;
 	   }
-	   //System.out.println("Total Cost : "+totalCost);
+	   System.out.println("Total Cost : "+totalCost);
 	   return totalCost;
    }
    
@@ -188,13 +222,16 @@ private CartItemDao cartItemDao;
    /* @RequestMapping(value="/cart/clearcart")
     public String clearCart(@AuthenticationPrincipal Principal principal){
     	//Get list of cartItems 
-    	List<CartItem> cartItems=cartItemDao.getCart(principal.getName());
+    	//List<CartItem> cartItems=cartItemDao.getCart(principal.getName());
+    	List<CartItem> cartItems=cartItemDao.get
      	for(CartItem cartItem:cartItems){
     		cartItemDao.removeCartItem(cartItem.getCartItemId());
     		//delete from cartItem where cartItemid=?
     	}
     	return "redirect:/cart/getcart";
-    }
+    }*/
+    
+    /*
     @RequestMapping(value="/cart/shippingaddressform")
     public String getShippingAddressForm(@AuthenticationPrincipal Principal principal,Model model){
     	if(principal==null)
@@ -269,13 +306,23 @@ private CartItemDao cartItemDao;
     @RequestMapping(value="/confirmOrder")
     public String confirmOrder(Model m,HttpSession session)
     {
-    	String username=(String) session.getAttribute("username");
-    	List<CartItem> cartItemList=cartItemDao.listCartItems(username);
+    	SecurityContext scontext=SecurityContextHolder.getContext();
+    	Authentication authentication=scontext.getAuthentication();
+		String username=authentication.getName();
+
+		session.setAttribute("username", username);
+
+
+    	String uname=(String) session.getAttribute("username");
+    	List<CartItem> cartItemList=cartItemDao.listCartItems(uname);
     	m.addAttribute("listCartItems",cartItemList);
     	m.addAttribute("total_Amount",this.totalCartValue(cartItemList));
     	return "orderDetails";
     	
     }
     
+    
+ 
+
 }
 

@@ -19,10 +19,40 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<center><h1><b>List of Products</b></h1></center>
 
 	<div class="container">
-		<b>List of Products</b>
-		<table class="table table-striped" border="1">
+
+<div  class="row text-center text-lg-left">
+	<c:forEach items="${productsList}" var="p">
+		<div class="col-md-3 col-sm-4 col-xs-12">
+			<%-- <a href="<c:url value="/totalProductDisplay/${product.productId}"/>" class="d-block mb-4 h-100"> --%>
+			<a href="<c:url value='/all/getproduct/${p.id }'></c:url>">${p.id }
+			<img class="img-fluid img-thumbnail" id="img" src="<c:url value="/resources/images/${p.id}.jpg"/>" style:"width="100" height="100""/></a>
+			<table>
+			      <tr><div align="center">${p.productdesc}</div></tr>
+			      <tr><div align="center">Price :${p.price}</div></tr>
+			      <tr><div align="center">Stock :${p.quantity}</div></tr>
+			</table>
+						<!-- <span class="glyphicon glyphicon-info-sign"></span></a> --> 
+				
+                                <security:authorize access="hasRole('ROLE_ADMIN')">
+								<a href="<c:url value='/admin/deleteproduct/${p.id }'></c:url>"><span
+								class="glyphicon glyphicon-trash"></span></a> 
+								
+								<a href="<c:url value='/admin/getupdateform/${p.id }'></c:url>"><span
+								class="glyphicon glyphicon-pencil"></span></a>
+								  </security:authorize>
+				
+			</a>
+		</div>
+	</c:forEach>
+	</div>
+</div>
+
+
+		
+<%-- 		<table class="table table-striped" border="1">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -39,9 +69,8 @@ $(document).ready(function(){
 				<!-- var is local variable ,takes objects one by one from the collection -->
 				<c:forEach var="p" items="${productsList }">
 					<tr >
-						<td><a
-							href="<c:url value='/all/getproduct/${p.id }'></c:url>">${p.id }</a></td>
-					   <td><img src="<c:url value='/resources/images/${p.id }.png'></c:url>" height="30px" width="30px"></td>
+						<td><a href="<c:url value='/all/getproduct/${p.id }'></c:url>">${p.id }</a></td>
+					   <td><img src="<c:url value='resources/images/${p.id }.jpg'></c:url>" height="30px" width="30px"></td>
 						<td><a
 							href="<c:url value='/all/getproduct/${p.id }'></c:url>">${p.productname }</a></td>
 						<td>${p.price }</td>
@@ -66,7 +95,7 @@ $(document).ready(function(){
 			</tbody>
 		</table>
 
-	</div>
+	</div> --%>
 </body>
 </html>
 

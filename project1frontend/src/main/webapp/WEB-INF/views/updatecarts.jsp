@@ -41,7 +41,7 @@
 		</div>
 	</div>
 	
-	$
+	
 	<a href="<c:url value='/all/getallproducts'></c:url>">Browse all products</a>
 
 </body>

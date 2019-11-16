@@ -10,15 +10,15 @@
 <body>
 
  <div class="container">
-<c:if test="${ !empty(cartItems) }">
+<%-- <c:if test="${ !empty(cartItems) }">
 <a href="<c:url value='/cart/clearcart'></c:url>" class="btn btn-danger" pull-left  >
 <span class="glyphicon glypicon-remove"></span>
 Clear Cart
 </a>
-</c:if>
+</c:if> --%>
 <table class="table table-striped">
 <thead id="thead">
- <tr><th>Cartitem Id</th><th>Quantity</th><th>Price</th><th>Total Price</th><th>Operations</th> 
+ <tr><th>Cartitem Id</th><th>Quantity</th><th>Units</th><th>Price</th><th>Total Price</th><th>Operations</th> 
 </tr>
 </thead>
 <c:set var="grandTotal" value="0"></c:set>
@@ -40,8 +40,10 @@ Clear Cart
                         <td class="col-sm-1 col-md-1" style="text-align: center">
                         <input type="text" class="form-control" name="quantity" id="quantity" value="${cartItem.quantity}">
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.price}</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.price * cartItem.quantity}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.units }</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.price}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.price * cartItem.quantity}</strong></td>
+                        
                         <td class="col-sm-1 col-md-1">
                         <button type="submit" class="btn btn-primary">
                             <span class="glyphicon glyphicon-update"></span> update 

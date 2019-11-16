@@ -28,7 +28,7 @@
 	<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-				<a href="" class="navbar-brand"><img src="<c:url value='/resources/images/gro.png'></c:url>" alt="ESTORE" height="30px" width="30px"></a>
+				<a href=""><img src="<c:url value='/resources/images/gro.png'></c:url>" alt="ESTORE" height="50px" width="50px" ></a>
 			<button type="button" class="navbar-toggle collapsed" 
    data-toggle="collapse" data-target="#navbardemo" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -39,12 +39,13 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbardemo">
 			<ul class="nav navbar-nav">
-				<li><a href='<c:url value='/home'></c:url>' class="fontSize">Home</a></li>
-				<li><a href="<c:url value='/aboutus'></c:url>" >About Us</a></li>
-				<li><a href="<c:url value='/all/getallproducts'></c:url>">Browse all products</a>
+			
+				<li><a href='<c:url value='/home'></c:url>' class="navbar-brand" >  &nbsp;Home</a></li>
+				<li><a href="<c:url value='/aboutus'></c:url>" class="navbar-brand" >About Us</a></li>
+				<li><a href="<c:url value='/all/getallproducts'></c:url>" class="navbar-brand" >Products</a>
 				<li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">Select By Category<span class="caret"></span></a>
+					data-toggle="dropdown" >Category<span class="caret"></span></a>
 					
 				<ul class="dropdown-menu">
 				<c:forEach items="${categories }" var="category">
@@ -53,39 +54,42 @@
 				
 				</c:forEach>
 				<li>
-				<a href="<c:url value='/all/searchByCategory?searchCondition=All'></c:url>">All</a>
+				<a href="<c:url value='/all/searchByCategory?searchCondition=All'></c:url>" >All</a>
 				</li>
 				</ul>
 			   </li>
 			  
 			  
 			   <security:authorize access="hasRole('ROLE_ADMIN')">
-			   <li><a href="<c:url value='/admin/getproductform'></c:url>">Add Product</a></li>
+			   <li><a href="<c:url value='/admin/getproductform'></c:url>" class="navbar-brand" >Manage Product</a></li>
 				</security:authorize>    
 			   
 			   <security:authorize access="hasRole('ROLE_ADMIN')">
-			   <li><a href="<c:url value='/admin/category'></c:url>">Add Category</a></li>
+			   <li><a href="<c:url value='/admin/category'></c:url>" class="navbar-brand" >Manage Category</a></li>
 				</security:authorize>    
 			   
 			   <security:authorize access="hasRole('ROLE_ADMIN')">
-			   <li><a href="<c:url value='/admin/supplier'></c:url>">Add Supplier</a></li>
+			   <li><a href="<c:url value='/admin/supplier'></c:url>" class="navbar-brand" >Manage Supplier</a></li>
 				</security:authorize>    
 			   
 			   
 			   <security:authorize access="hasRole('ROLE_USER')">
-			   <li><a href="<c:url value='/cart/getcart'></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span>(${cartSize})</a></li>
+			   <li><a href="<c:url value='/cart/getcart'></c:url>" class="navbar-brand" ><span class="glyphicon glyphicon-shopping-cart"></span>(${cartSize})</a></li>
 			   </security:authorize>
 			   
 			   <c:if test="${pageContext.request.userPrincipal.name==null }">
-				<li><a href="<c:url value='/all/registrationform'></c:url>">Sign Up</a></li>
-				<li><a href="<c:url value='/login'></c:url>">Sign In</a></li>
+				 <li><a href="<c:url value='/all/registrationform'></c:url>" class="navbar-brand" >Sign Up</a></li>
+			<%-- 	<li><a href="<c:url value='/register'></c:url>" class="navbar-brand" >Sign Up</a></li> --%>
+				<li><a href="<c:url value='/login'></c:url>" class="navbar-brand" >Sign In</a></li>
 				</c:if>
-				
+			</ul>	
+			<ul class="nav navbar-nav navbar-right">
 				<c:if test="${pageContext.request.userPrincipal.name!=null }">
-				<li><a href="#">Welcome ${pageContext.request.userPrincipal.name }</a></li>
-				<li><a href="<c:url value='/j_spring_security_logout'></c:url>">Sign out</a></li>
+				<li><a href="#" class="navbar-brand" >Welcome ${pageContext.request.userPrincipal.name }</a></li>
+				<li><a href="<c:url value='/j_spring_security_logout'></c:url>" class="navbar-brand" >Sign out</a></li>
 			    </c:if>
-			</ul>
+			   </ul>
+			
 			</div>
 		</nav>
 	</div>

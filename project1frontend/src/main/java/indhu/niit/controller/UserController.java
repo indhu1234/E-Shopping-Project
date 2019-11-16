@@ -22,7 +22,7 @@ public class UserController
 	@Autowired
 	ProductDao productdao;
 	
-	@RequestMapping(".login_success")
+	@RequestMapping("/login_success")
 	public String loginSuccess(HttpSession session,Model m)
 	{
 		String page=" ";

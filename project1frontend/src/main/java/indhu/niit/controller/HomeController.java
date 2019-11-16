@@ -35,12 +35,19 @@ public String homePage(HttpSession session,@AuthenticationPrincipal Principal pr
 	List<CartItem> cartItems=cartItemDao.listCartItems(username);
 	session.setAttribute("cartSize",cartItems.size());
 	}
-	return "home";
+	return "home1";
 	}
 @RequestMapping(value="/aboutus")
 public String aboutusPage(){
 	return "aboutus";
 }
+
+@RequestMapping(value="/register")
+public String showRegister()
+{
+	return "Register";
+}
+
 @RequestMapping(value="/login")
 public String login(){
 	return "login";

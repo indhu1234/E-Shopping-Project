@@ -17,43 +17,44 @@
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
             </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img class="img-circle" src="resources/images/carousel1.jpg" alt="Grocerries" height="100%" width="100%">
+            <center><div class="carousel-inner" role="listbox">
+                <div class="item active" style="width:100%;max-width:500px ">
+                    <img style="width:100%;max-width:600px " class="w3-circle" src="resources/images/carousel1.jpg" alt="Grocerries">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>WE WELCOMES YOU</h1>
+                            <h3>WE WELCOMES YOU</h3>
                             <p>So much of products will satisfy you</p>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <img class="img-circle" src="resources/images/carousel5.jpg" alt="Grocerries" height="100%" width="100%">
+                <center> <div class="item">
+                    <img style="width:100%;max-width:600px " class="w3-border" src="resources/images/carousel5.jpg" alt="Grocerries"> 
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Offers available</h1>
                             <p>Offers applicable for different products</p>
                         </div>
                     </div>
-                </div>
-                <div class="item">
-                    <img class="img-circle" src="resources/images/carousel2.jpg" alt="Grocerries" height="100%" width="100%">
+                </div> </center>
+               
+                <center><div class="item">
+                    <img style="width:100%;max-width:600px " class="img-circle" src="resources/images/carousel2.jpg" alt="Grocerries" height="100%" width="100%">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>LOVE YOUR WORK, MAKE TIME RELAX TO SEE THE WORLD</h1>
                            
                         </div>
                     </div>
-                </div>
-                 <div class="item">
-                    <img class="img-circle" src="resources/images/carousel3.jpg" alt="Grocerries" height="100%" width="100%">
+                </div></center>
+                <center> <div class="item">
+                    <img style="width:100%;max-width:600px " class="img-circle" src="resources/images/carousel3.jpg" alt="Grocerries" height="100%" width="100%">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>ENJOY YOUR WORK, MAKE TIME RELAX TO SEE THE WORLD</h1>
                             
                         </div>
                     </div>
-                </div>
+                </div></center>
             </div>
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -64,7 +65,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div><!-- /.carousel -->
-
+</center>
 
 </div>
 

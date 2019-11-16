@@ -44,7 +44,16 @@
 			<tr><td>Enter Quantity</td>
 			<td><form:input path="quantity" type="number"></form:input>
 			<form:errors path="quantity" cssStyle="color:red"></form:errors>
-			</td></tr>
+			</td>
+			<td>
+			<form:select path="units">
+			<form:option value="Kg"></form:option>
+			<form:option value="Ltr"></form:option>
+			</form:select>
+			</td>
+			
+			</tr>
+			
 			<tr><td>Select the Category</td>
 			
 			<td><form:select path="category.categoryId"><!-- FK column value -->

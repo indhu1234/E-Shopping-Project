@@ -66,7 +66,7 @@ private SessionFactory sessionFactory;
 	public List<CartItem> listCartItems(String username) {
 	
 		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from Cart where username=:uname and status='NP'");
+		Query query=session.createQuery("from CartItem where username=:uname and status='NP'");
 		query.setParameter("uname", username);
 		List<CartItem> cartItemList=query.list();
 		session.close();

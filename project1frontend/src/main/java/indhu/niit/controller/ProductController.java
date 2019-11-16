@@ -47,16 +47,19 @@ public String getAllProducts(Model model){
 }
 
 @RequestMapping(value="/all/getproduct/{id}")
-public String getProduct(@PathVariable int id,Model model){
+public String getProduct(@PathVariable int id,Model model)
+{
 	Product product=productDao.getProduct(id);
 	model.addAttribute("productObj",product);
+	List<Product> products=productDao.getAllProducts();
+		model.addAttribute("productsList",products);
 	return "viewproduct";
 }
 
 @RequestMapping(value="/admin/deleteproduct/{id}")
 public String deleteProduct(@PathVariable int id,Model model,HttpServletRequest request){
 	productDao.deleteProduct(id);
-	Path path=Paths.get(request.getServletContext().getRealPath("/")+"/WEB-INF/resources/images/"+id+".png");
+	Path path=Paths.get(request.getServletContext().getRealPath("/")+"/WEB-INF/resources/images/"+id+".jpg");
 	if(Files.exists(path)){
 		try {
 			Files.delete(path);
@@ -93,8 +96,7 @@ public String addProduct(@Valid @ModelAttribute(name="product") Product product,
 	MultipartFile img=product.getImage();
 	System.out.println(request.getServletContext().getRealPath("/"));
 	//Defining a path
-	Path path=Paths.get(request.getServletContext().getRealPath("/")
-			+"/WEB-INF/resources/images/"+product.getId()+".png");
+	Path path=Paths.get(request.getServletContext().getRealPath("/")+"/WEB-INF/resources/images/"+product.getId()+".jpg");
 	//transfer the image to the file
 
 	if(!img.isEmpty()&&img!=null){
@@ -130,7 +132,7 @@ public String updateProduct(@Valid @ModelAttribute Product product,BindingResult
 	MultipartFile img=product.getImage();
 	System.out.println(request.getServletContext().getRealPath("/"));
 	//Defining a path
-	Path path=Paths.get(request.getServletContext().getRealPath("/")+"/WEB-INF/resources/images/"+product.getId()+".png");
+	Path path=Paths.get(request.getServletContext().getRealPath("/")+"/WEB-INF/resources/images/"+product.getId()+".jpg");
 	//transfer the image to the file
 	if(!img.isEmpty()&&img!=null){
 		try {
