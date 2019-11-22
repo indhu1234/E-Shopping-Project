@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css" src="resources/css/boot.css"></style>
 </head>
 <body>
 <div class="container">
@@ -19,7 +20,7 @@
             </ol>
             <center><div class="carousel-inner" role="listbox">
                 <div class="item active" style="width:100%;max-width:500px ">
-                    <img style="width:100%;max-width:600px " class="w3-circle" src="resources/images/carousel1.jpg" alt="Grocerries">
+                    <img class="w3-circle" src="resources/images/carousel1.jpg" alt="Grocerries">
                     <div class="container">
                         <div class="carousel-caption">
                             <h3>WE WELCOMES YOU</h3>
@@ -28,7 +29,7 @@
                     </div>
                 </div>
                 <center> <div class="item">
-                    <img style="width:100%;max-width:600px " class="w3-border" src="resources/images/carousel5.jpg" alt="Grocerries"> 
+                    <img class="w3-border" src="resources/images/carousel5.jpg" alt="Grocerries"> 
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Offers available</h1>
@@ -38,7 +39,7 @@
                 </div> </center>
                
                 <center><div class="item">
-                    <img style="width:100%;max-width:600px " class="img-circle" src="resources/images/carousel2.jpg" alt="Grocerries" height="100%" width="100%">
+                    <img class="img-circle" src="resources/images/carousel2.jpg" alt="Grocerries" height="100%" width="100%">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>LOVE YOUR WORK, MAKE TIME RELAX TO SEE THE WORLD</h1>
@@ -47,7 +48,7 @@
                     </div>
                 </div></center>
                 <center> <div class="item">
-                    <img style="width:100%;max-width:600px " class="img-circle" src="resources/images/carousel3.jpg" alt="Grocerries" height="100%" width="100%">
+                    <img class="img-circle" src="resources/images/carousel3.jpg" alt="Grocerries" height="100%" width="100%">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>ENJOY YOUR WORK, MAKE TIME RELAX TO SEE THE WORLD</h1>

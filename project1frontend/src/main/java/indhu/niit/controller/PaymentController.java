@@ -18,8 +18,10 @@ import indhu.niit.dao.CartItemDao;
 import indhu.niit.dao.CustomerDao;
 import indhu.niit.dao.OrderDao;
 import indhu.niit.dao.UserDao;
+import indhu.niit.dao.shippingdao;
 import indhu.niit.models.CartItem;
 import indhu.niit.models.OrderDetail;
+import indhu.niit.models.ShippingAddress;
 import indhu.niit.models.UserDetail;
 
 @Controller
@@ -33,6 +35,9 @@ public class PaymentController
 	
 	@Autowired
 	OrderDao orderDAO;
+	
+	@Autowired
+	shippingdao shipping;
 	
 	@RequestMapping(value="/cart/paymentpage")
 	
@@ -129,10 +134,40 @@ public class PaymentController
 	}
 
 @RequestMapping(value="/receipt/shipping")
-public String shipping(Model m)
+public String showshipping(Model m)
 {
-	UserDetail user=new UserDetail();
-	m.addAttribute(user);
+	ShippingAddress address=new ShippingAddress();
+	m.addAttribute("shippingaddress",address);
 	return "shippingaddress";
+}
+@RequestMapping(value="/receipt/address")
+public String shipping(HttpSession session,@RequestParam("apartmentnumber") String apartmentnumber,@RequestParam("streetname") String street, @RequestParam("city") String city, @RequestParam("state") String state, @RequestParam("country") String country,@RequestParam("zipcode") String zipcode, Model m)
+{
+	SecurityContext scontext=SecurityContextHolder.getContext();
+	Authentication authentication=scontext.getAuthentication();
+	String username=authentication.getName();
+
+	session.setAttribute("username", username);
+
+	String uname=(String)session.getAttribute("username");
+
+	ShippingAddress address1=new ShippingAddress();
+	address1.setApartmentnumber(apartmentnumber);
+	address1.setCity(city);
+	address1.setCountry(country);
+	
+	address1.setState(state);
+	address1.setStreetname(street);
+	address1.setZipcode(zipcode);
+	shipping.addshipping(address1);
+	List<ShippingAddress> Listaddress1=shipping.listAddress();
+	
+	m.addAttribute("apartmentnumber1",address1.getApartmentnumber());
+	m.addAttribute("street1",address1.getStreetname());
+	m.addAttribute("city1",address1.getCity());
+	m.addAttribute("zip1",address1.getZipcode());
+	
+
+	return "Receipt";
 }
 }

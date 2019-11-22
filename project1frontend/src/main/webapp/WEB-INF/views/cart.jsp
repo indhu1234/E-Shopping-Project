@@ -18,7 +18,7 @@ Clear Cart
 </c:if> --%>
 <table class="table table-striped">
 <thead id="thead">
- <tr><th>Cartitem Id</th><th>Quantity</th><th>Units</th><th>Price</th><th>Total Price</th><th>Operations</th> 
+ <tr><th>Cartitem Id</th><th>Product</th><th>Quantity</th><th>Units</th><th>Price</th><th>Total Price</th><th>Operations</th> 
 </tr>
 </thead>
 <c:set var="grandTotal" value="0"></c:set>
@@ -27,9 +27,9 @@ Clear Cart
 <form action="<c:url value="/cart/updateCart/${cartItem.cartItemId }"></c:url>" method="get">
 <tr>
 
-<td class="col-sm-8 col-md-6">
-                        <div>${cartItem.cartItemId }</div>
-                        <div class="media">
+<td class="col-sm-1">
+                        <div>${cartItem.cartItemId }</div></td>
+                       <td> <div class="media">
                             <!-- <a class="thumbnail pull-left" href="#"> --> <img class="media-object" src="<c:url value="/resources/images/${cartItem.product.id}.jpg"/>" style="width: 72px; height: 72px;"> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">Product Name: ${cartItem.product.productname}</a></h4>
@@ -37,14 +37,14 @@ Clear Cart
                                 <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
                             </div>
                         </div></td>
-                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                        <td class="col-sm-10 col-md-1" style="text-align: center">
                         <input type="text" class="form-control" name="quantity" id="quantity" value="${cartItem.quantity}">
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.units }</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.price}</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.product.price * cartItem.quantity}</strong></td>
+                        <td class="col-sm-10 col-md-1 text-center"><strong>${cartItem.product.units }</strong></td>
+                        <td class="col-sm-10 col-md-1 text-center"><strong>${cartItem.product.price}</strong></td>
+                        <td class="col-sm-10 col-md-1 text-center"><strong>${cartItem.product.price * cartItem.quantity}</strong></td>
                         
-                        <td class="col-sm-1 col-md-1">
+                        <td class="col-sm-2 col-md-1">
                         <button type="submit" class="btn btn-primary">
                             <span class="glyphicon glyphicon-update"></span> update 
                         </button>
@@ -129,6 +129,14 @@ Total Price : ${grandTotal }
 </c:if>
 </div>
  --%>
+
+<center><div class="footer-area-bottom">
+                    <div class="container">
+                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                    </div>
+                </div></center>
+
+
 </body>
 
 </html>

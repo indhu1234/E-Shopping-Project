@@ -1,6 +1,96 @@
 @charset "ISO-8859-1";
-#nav_bar{
-	background-color:#408080;
+
+
+nav img{
+    height: 6rem;
+    width : 6rem;
+}
+
+  
+#table{
+	padding-top: 0.2rem;
+	padding-left: 1.2rem;
+}
+
+#space{
+    background-color: "white";
+}
+#just{
+	padding-bottom: 4rem;
+}
+#bot{
+
+}
+
+ul{
+        padding: 10;
+        list-style: none;
+        background: #ff8000;
+    }
+    ul li{
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: center;
+    }
+    ul li a{
+        display: inline-block;
+        padding: 8px 25px;
+        color: #333;
+        text-decoration: none;
+    }
+    ul li a:hover{
+        color: #000000;
+        background: #56cfbe;
+    }
+    ul li ul.dropdown{
+        min-width: 100%; /* Set width of the dropdown */
+        background: #80ff80;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+    }
+    ul li:hover ul.dropdown{
+        display: block;	/* Display the dropdown */
+         background:#ff8000;
+    }
+    
+   #img {
+    position: relative;
+    float: left;
+    width:  300px;
+    height: 300px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+.wrapper {
+        text-align: center;
+    }
+    .wrapper ul {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        /* For IE, the outcast */
+        zoom:1;
+        *display: inline;
+    }
+    .wrapper li {
+        float: center;
+       
+    }
+    
+.nav navbar-nav navbar-right{
+	float:left;
+
+
+
+
+
+/* #nav_bar{
+	background-color:#80ffff;
 }
 #links a{
 	color:#804000;
@@ -12,6 +102,21 @@
 }
 .navbar-brand>img {
   height: 100%;
-  padding: 15px;
+  
   width: auto;
 }
+.img
+{
+	display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: -50px;
+}
+img
+{
+	background-color:green;
+	color:blue;
+} */

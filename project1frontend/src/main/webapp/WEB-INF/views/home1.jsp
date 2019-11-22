@@ -8,10 +8,10 @@
 <title>Grocerry World</title> 
 <style>
 .flip-box {
-  background-color: #fff;
+  background-color: green;
   width: 700px;
   height: 200px;
-  border: 1px solid #f1f1f1;
+  border: 1px solid green;
   perspective: 1000px;
 }
 
@@ -22,6 +22,7 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  
 }
 
 .flip-box:hover .flip-box-inner {
@@ -36,13 +37,13 @@
 }
 
 .flip-box-front {
-  background-color: #fff;
+  background-color: green;
   color: black;
 }
 
 .flip-box-back {
-  background-color: #fff;
-  color: #333;
+  background-color: green;
+  color:red;
   transform: rotateY(180deg);
 }
 .column {
@@ -73,7 +74,7 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                   <center> <img class="img" src="resources/images/carousel1.jpg" alt="first slide" height="40%" width="40%"></center>
+                   <center> <img class="img" src="resources/images/carou3.jpg" alt="first slide" height="40%" width="40%"></center>
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>WELCOME   TO   THE  WORLD  OF GROCERRY WEB</h1>
@@ -82,7 +83,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <center><img class="img" src="resources/images/carousel4.jpg" alt="Second slide" height="40%" width="40%"></center>
+                    <center><img class="img" src="resources/images/carou1.jpg" alt="Second slide"></center>
                    <div class="container">
                         <div class="carousel-caption">
                               <h1>50% off</h1>
@@ -92,7 +93,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <center><img class="img" src="resources/images/11.gif" alt="Third slide" height="40%" width="40%"></center>
+                    <center><img class="img" src="resources/images/11.gif" alt="Third slide"></center>
                     <div class="container">
                         <div class="carousel-caption">
                             <h1></h1>
@@ -101,7 +102,7 @@
                     </div>
                 </div>
                  <div class="item">
-                    <center><img class="img" src="resources/images/carousel3.jpg" alt="forth slide" height="40%" width="40%"></center>
+                    <center><img class="img" src="resources/images/carou2.jpg" alt="forth slide" height="40%" width="40%"></center>
                   <div class="cointainer">
                         <div class="carousel-caption">
                             <h1>MORE U LOVE MORE U CAN BUY</h1>
@@ -127,11 +128,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-5">
-			<a href="#"><img style="height: 500px;" class="img-responsive"  alt="All in one website" src="resources/images/gro.png"></a>
+			<a href="#"><img style="height: 500px;" class="img-responsive"  alt="All in one website" src="resources/images/logo2.png"></a>
 		</div>
 		<div class="col-md-7">	
-			<h2 class="about_h2" style="font-family: 'Pacifico', cursive;">Grocerry<span style="color:#00aeef;">E</span>Shop</h2>
-    		<h2 class="about_h2">Feel Free to Shop</h2>
+			<h2 class="about_h2" style="font-family: 'Pacifico', cursive;color:black;">Grocerry<span style="color:#00aeef;">E</span>Shop</h2>
+    		<h2 class="about_h2" style="color:white;">Feel Free to Shop</h2>
 			<div class="home_about">	
 				<p>Who we are &nbsp;
 		
@@ -158,12 +159,13 @@ Happy Shopping!!</p>
 	</div>
 </div>
 </section>
+<section class="container">
 <div class="row">
 <div class="column">
 <div class="flip-box">
   <div class="flip-box-inner">
     <div class="flip-box-front">
-      <a><img class="img-responsive"  alt="E-Shop" src="resources/images/logo.png" style="height:250px!important"></a>
+      <a><img class="img-responsive"  alt="E-Shop" src="resources/images/carou4.jpg" style="height:200px!important"></a>
     </div>
     <div class="flip-box-back">
       <h2 class="glyphicon glyphicon-eye-open" style="color: #00aeef;"> Vision</h2>
@@ -190,28 +192,29 @@ Happy Shopping!!</p>
 </div>
 </div>
 </div>
+</section>
 <section class="section-space background_bg">
 <div class="container">
 	<h2 class="product_h2" style="font-family: 'Lobster';">New Arrival</h2>
 	<div class="row">
 		<div class="col-md-3">
-			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/oils.jpg"></a>
+			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/dryfruit1.jpg"></a>
 		</div>
 		<div class="col-md-3">	
-			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/fruitsall.jpg"></a>			
+			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/veg2.jpg"></a>			
 		</div>
 		<div class="col-md-3">	
-			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/vegetables1.jpg"></a>			
+			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/badam.jpg"></a>			
 		</div>
 		<div class="col-md-3">	
-			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/nutsall.jpg"></a>			
+			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/carousel2.jpg"></a>			
 		</div>
 	</div>
 </div>
 </section>
   <center><div class="footer-area-bottom">
                     <div class="container">
-                        <p>© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                        <p style="color:black;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
                     </div>
                 </div></center>
 

@@ -27,11 +27,31 @@
 
 </head>
 <body>
+<p align="center"><b>Shipping Address</b></p>
 <div class="container">
-<c:url var="url" value="/cart/createorder"></c:url>
-<form:form modelAttribute="shippingaddress" action="${url }" id="form">
+<c:url var="url" value="/receipt/address"></c:url>
+<form action="${url }" method="post">
+ID :
+<input type="hidden" name="id" value=${address.id }  > <br>
+Enter Apartment Number :
+<input type="text" name="apartmentnumber"><br>
+Enter Street Name :
+<input type="text" name="streetname"><br>
+Enter City:
+<input type="text" name="city"><br>
 
-<p align="center"><b>Shipping Address</b></p>	
+Enter State :
+<input type="text" name="state"><br>
+Enter Country :
+<input type="text" name="country"><br>
+
+Enter Zip Code :
+<input type="text" name="zipcode"><br>
+<br>
+<input type="submit" value="Submit">
+<input type="reset" value="reset">
+
+<%-- 	
 <form:hidden path="id"/>
 
 <form:label path="apartmentnumber">Enter Apartmentnumber</form:label>
@@ -61,5 +81,13 @@
 <button type="submit" >Next</button>
 </form:form>
 </div>
+ --%>
+ </form>
+<center><div class="footer-area-bottom">
+                    <div class="container">
+                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                    </div>
+                </div></center>
+
 </body>
 </html>

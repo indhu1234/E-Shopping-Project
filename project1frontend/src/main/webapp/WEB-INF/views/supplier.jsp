@@ -58,5 +58,12 @@
 			</table>
 
 		</form>
+		
+		<center><div class="footer-area-bottom">
+                    <div class="container">
+                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                    </div>
+                </div></center>
+		
 </body>
 </html>

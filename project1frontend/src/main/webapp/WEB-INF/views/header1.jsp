@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 
     <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
-<title>FashionHi5</title>
+<title>Grocerry Shop</title>
 
 </head>
 <body>
@@ -33,7 +33,7 @@
 			<div class="navbar-header-inverse">
 				<a href="resources/images/logo.png" class="navbar-brand">
 					
-					<span class="logo_style"><i>FashionHi5</i></span>
+					<span class="logo_style"><i>Grocerryshop</i></span>
 				</a>	
 <button type="button" class="navbar-toggle collapsed" 
    data-toggle="collapse" data-target="#navbardemo" aria-expanded="false">

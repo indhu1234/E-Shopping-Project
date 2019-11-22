@@ -14,7 +14,7 @@
 <div class="container-wrapper">
     <div class="container">
     
-       	<div style="background-color:Blue">
+       	<div style="background-color:Blue; color:white">
 		<h2 align="center">Products Purchased </h2>
 	</div>
 	
@@ -193,6 +193,11 @@
 
  --%>
 
+<center><div class="footer-area-bottom">
+                    <div class="container">
+                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                    </div>
+                </div></center>
 
 </body>
 </html>

@@ -18,22 +18,21 @@
             <div >
               <h1 align="center">Invoice</h1>
                        </div>
-                        ORDER ID: ${order.orderId }
                   
+                        ORDER ID: ${order.orderId }
                         <div class="row">
-                            <div class="row">
-    			<div class="col-xs-6">
+                    	<div class="col-xs-9" >
     				<address>
-    				<strong>Billed To:</strong><br>
-    				    ${customer}</br>
-    					${street}</br>
-    					${city }</br>
-    					${zip }</br>
-    					${mobile }</br>
+    				<strong>Billed To:</strong>
+       				    	${customer}</br>
+    						${street}</br>
+    						${city }</br>
+    						${zip }</br>
+    						${mobile }</br>
     				</address>
     			</div>
-    			<div class="row">
-    			<div class="col-xs-6">
+    			
+    			<div >
     				<address>
     					<strong>Total shopping Amount :</strong><br/>
     					${total_Amount+ (total_Amount/10)}/-<br/>
@@ -41,27 +40,28 @@
     			</div>
     			
     				<div class="row">
-    			<div class="col-xs-6">
+    			<div class="col-xs-9">
     				<address>
     					<strong>Payment Method:</strong><br/>
     					${order.pmode}<br/>
     				</address>
     			</div>
     	
-    			<div class="col-xs-6 text-right">
+    			<div>
     				<address>
     					<strong>Order Date:</strong><br>
     					${order.orderDate}<br><br>
     				</address>
     			</div>
     		</div>
-    		</div>
+    		
     				
         <div class="row">
-    	<div class="col-md-12">
+    	<!-- <div>
     		<div class="panel panel-default">
-    			<div class="panel-heading">
-    				<h3 class="panel-title"><strong>Order summary</strong></h3>
+ -->
+ 	    			<div class="panel-heading">
+    				<h3 class="panel-title"><center><strong>Order summary</strong></center></h3>
     			</div>
     			<div class="panel-body">
     				<div class="table-responsive">
@@ -118,14 +118,16 @@
             </div>
             
           
-        </div>
-        </div>
-        </div>
+        
 <div>
 
-<a href="<c:url value="/receipt/shipping"></c:url>">Shipping Address</a>
+<h4>Shipping Address : </h4> ${street},${city }, ${zip }</br>
+    					${mobile }</br>	
+
 </div>
- 
+ </div>
+        </div>
+        </div>
 
 <center><h1>Thank you!!! </h1></center>
 
@@ -211,6 +213,11 @@
 </div>
 
  --%>
+<center><div class="footer-area-bottom">
+                    <div class="container">
+                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                    </div>
+                </div></center>
 
 </body>
 </html>
