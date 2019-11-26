@@ -167,7 +167,6 @@ public String shipping(HttpSession session,@RequestParam("apartmentnumber") Stri
 	m.addAttribute("city1",address1.getCity());
 	m.addAttribute("zip1",address1.getZipcode());
 	
-
 	return "Receipt";
 }
 }

@@ -1,11 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ include file="header.jsp" %>
+     <%-- <%@ include file="UserHome.jsp"%> --%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+#tab {
+  width:800px;
+  margin: auto;
+  border: 1px solid red;
+}
+</style>
+
 </head>
 <body>
 
@@ -14,7 +23,7 @@
 
             <div class="row">
 
-            <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+            <div  id="tab" class="well col-xs-20 col-sm-20 col-md-15 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
             <div >
               <h1 align="center">Invoice</h1>
                        </div>
@@ -40,14 +49,14 @@
     			</div>
     			
     				<div class="row">
-    			<div class="col-xs-9">
+    			<div class="col-xs-13">
     				<address>
     					<strong>Payment Method:</strong><br/>
     					${order.pmode}<br/>
     				</address>
     			</div>
     	
-    			<div>
+    			<div class="col-xs-10">
     				<address>
     					<strong>Order Date:</strong><br>
     					${order.orderDate}<br><br>
@@ -121,18 +130,18 @@
         
 <div>
 
-<h4>Shipping Address : </h4> ${street},${city }, ${zip }</br>
+<h4><strong>Shipping Address : </strong></h4> ${street},${city }, ${zip }</br>
     					${mobile }</br>	
 
 </div>
  </div>
-        </div>
-        </div>
-
-<center><h1>Thank you!!! </h1></center>
+        
 
 
-
+       <h1 align="center">Thank you!!! </h1>
+    </div>
+</div>
+</div>
 <%-- <div class="container">
 
     <div class="row">

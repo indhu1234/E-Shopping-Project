@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ include file="header.jsp" %>
+ <%-- <%@ include file="UserHome.jsp"%> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -128,7 +129,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-5">
-			<a href="#"><img style="height: 500px;" class="img-responsive"  alt="All in one website" src="resources/images/logo2.png"></a>
+			<a href="#"><img style="height: 500px;" class="img-responsive"  alt="All in one website" src="resources/images/logo1.png"></a>
 		</div>
 		<div class="col-md-7">	
 			<h2 class="about_h2" style="font-family: 'Pacifico', cursive;color:black;">Grocerry<span style="color:#00aeef;">E</span>Shop</h2>
@@ -168,9 +169,9 @@ Happy Shopping!!</p>
       <a><img class="img-responsive"  alt="E-Shop" src="resources/images/carou4.jpg" style="height:200px!important"></a>
     </div>
     <div class="flip-box-back">
-      <h2 class="glyphicon glyphicon-eye-open" style="color: #00aeef;"> Vision</h2>
-      <h1 style="font-family: 'Pacifico'; font-size:24px;">We continuously innovate to be the best destination</h1>
-      <h1 style="font-family: 'Pacifico'; font-size:24px;"> for our customers and partners.</h1>
+      <h2 class="glyphicon glyphicon-eye-open" style="color: white;"> Vision</h2>
+      <h1 style="font-family: 'Pacifico'; font-size:24px;color:white;">We continuously innovate to be the best destination</h1>
+      <h1 style="font-family: 'Pacifico'; font-size:24px;color:white;"> for our customers and partners.</h1>
     </div>
   </div>
 </div>
@@ -183,10 +184,10 @@ Happy Shopping!!</p>
       
     </div>
     <div class="flip-box-back">
-      <h2 class="glyphicon glyphicon-screenshot" style="color: #00aeef;"> Mission </h2>
+      <h2 class="glyphicon glyphicon-screenshot" style="color: white;"> Mission </h2>
       <p class="glyphicon glyphicon-send"><br>
-      <h1 style="font-family: 'Pacifico'; font-size:24px;">We use our technology to bring brands and shoppers closer together,</h1>
-      <h1 style="font-family: 'Pacifico'; font-size:24px;"> Making the world feel like a smaller place.</h1>
+      <h1 style="font-family: 'Pacifico'; font-size:24px;color:white;">We use our technology to bring brands and shoppers closer together,</h1>
+      <h1 style="font-family: 'Pacifico'; font-size:24px;color:white;"> Making the world feel like a smaller place.</h1>
     </div>
   </div>
 </div>
@@ -204,7 +205,7 @@ Happy Shopping!!</p>
 			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/veg2.jpg"></a>			
 		</div>
 		<div class="col-md-3">	
-			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/badam.jpg"></a>			
+			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/tomato1.jpg"></a>			
 		</div>
 		<div class="col-md-3">	
 			<a href="#"><img class="img-responsive"  alt="E-Shop" src="resources/images/carousel2.jpg"></a>			

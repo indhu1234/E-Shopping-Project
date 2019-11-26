@@ -13,7 +13,7 @@ Product getProduct(int id);
 void updateProduct(Product product);//product.id= ,already existing obj, update
 void deleteProduct(int id);
 List<Product> getAllProducts();//fetch all the records from product table
-
+List<Product> listProductsCategoryWise(int categoryId);
 
 List<Category> getAllCategories();
 }

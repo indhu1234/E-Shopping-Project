@@ -80,6 +80,18 @@ public ProductDaoImpl(){
 		List<Category> categories=query.list();
 		return categories;
 	}
+
+
+	@Override
+	public List<Product> listProductsCategoryWise(int categoryId) {
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Product where category_categoryId=:catId");
+		query.setParameter("catId", categoryId);
+		List<Product> productList=query.list();
+		session.close();
+		return productList;
+
+	}
 	
 	
 

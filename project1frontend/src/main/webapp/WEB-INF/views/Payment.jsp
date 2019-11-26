@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
         <%@ include file="header.jsp"%>
+         <%-- <%@ include file="UserHome.jsp"%> --%>
+        
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +19,7 @@ $(function () {
 </head>
 <body>
 
-<form action="<c:url value='/cart/invoice'/>">
+<form action="<c:url value='/cart/receipt'/>" method="post">
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
@@ -28,7 +30,7 @@ $(function () {
                     <h3>Total Amount to Pay : ${total_Amount+ (total_Amount/10)}/-</h3>
                     
                     <div class="card-title">
-                        <h2 class="text-xs-center">Payment</h2>
+                        <center><h2 class="text-xs-center">Payment</h2></center>
                     </div>
                        
                         
@@ -39,9 +41,9 @@ $(function () {
                     </div>
                 </div>
                 
-                    <hr>
+                   <!--  <hr> -->
                     
-                       <img src="http://i76.imgup.net/accepted_c22e0.png">
+           <!--             <img src="http://i76.imgup.net/accepted_c22e0.png"> -->
                           <hr>        
                         <div class="form-group">
                                   <label for="cc-number" class="control-label">Name On Card</label>
@@ -81,7 +83,7 @@ $(function () {
                             <span class="help-block" data-valmsg-for="x_zip" data-valmsg-replace="true"></span>
                         </div>
                         <div>
-                         <a href="<c:url value='/cart/invoice'/>" class="btn btn-default btn-success"><center>Pay Now</center><span style="padding-right:520px;" class="glyphicon glyphicon-money"></span></a></td>
+                         <center><input type="submit" value="Pay Now" class="btn btn-primary" /></center><span style="padding-right:520px;" class="glyphicon glyphicon-money"></span></a></td>
                           </div>
                           </div>
                           </div>

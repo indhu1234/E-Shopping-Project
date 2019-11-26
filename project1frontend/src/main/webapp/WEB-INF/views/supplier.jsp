@@ -3,12 +3,13 @@
 		
 	
 <%@include file="header.jsp"%>
+ <%-- <%@ include file="UserHome.jsp"%> --%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 </head>
-<body background="resources/images/bg6.jpg">
+<body style="background-color:pink;color:black;font-size:20px;font-family:Arial;">
 
 	<h2 align="center">Supplier Page</h2>
 

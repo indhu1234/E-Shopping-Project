@@ -1,4 +1,5 @@
 <%@ include file="header.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -305,7 +306,7 @@ input.checkbox {
 
 input.checkbox:before {
   content: "";
-  position: absolute;
+  /* position: absolute; */
   width: 1.2em;
   height: 1.2em;
   background: inherit;
@@ -314,7 +315,7 @@ input.checkbox:before {
 
 input.checkbox:after {
   content: "";
-  position: absolute;
+  /* position: absolute; */
   top: 0px;
   left: 0;
   z-index: 1;
@@ -803,29 +804,29 @@ input.checkbox:checked:after {
 				
 				<form action="<c:url value='/all/registercustomer'></c:url>" method="post" id="form">
 				
-					<input class="text" type="text" name="customer" placeholder="Customer Name" id="customer" required="">
-					<input class="text" type="text" name="username" placeholder="Username" id="username" required="">
-					<input class="text email" type="email" name="emailid" placeholder="Email" id="email" required="">
-					<input class="text" type="password" name="password" placeholder="Password" id="password" required="">
-					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
-					<input class="text" type="text" name="street" placeholder="Street" id="street" required="">
-					<input class="text" type="text" name="city" placeholder="city" id="city" required="">
-					<input class="text" type="text" name="zip" placeholder="zip" id="zip" required="">
-					<input class="text" type="text" name="mobile" placeholder="Mobile Number" id="mobile" required="">
-					<div class="wthree-text">
-						<label class="anim">
-							<input type="checkbox" class="checkbox" required="">
-							<span>I Agree To The Terms & Conditions</span>
+					<input class="text" type="text" name="customer" placeholder="Customer Name" id="customer" required=""><br>
+					<input class="text" type="text" name="username" placeholder="Username" id="username" required=""><br>
+					<input class="text email" type="email" name="emailid" placeholder="Email" id="email" required=""><br>
+					<input class="text" type="password" name="password" placeholder="Password" id="password" required=""><br>
+					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required=""><br>
+					<input class="text" type="text" name="street" placeholder="Street" id="street" required=""><br>
+					<input class="text" type="text" name="city" placeholder="city" id="city" required=""><br>
+					<input class="text" type="text" name="zip" placeholder="zip" id="zip" required=""><br>
+					<input class="text" type="text" name="mobile" placeholder="Mobile Number" id="mobile" required=""><br>
+					<div class="wthree-text" align="left">
+					<label class="anim">
+					<input type="checkbox" class="checkbox" required="">I Agree To The Terms & Conditions
 						</label>
 						<div class="clear"> </div>
 					</div>
-					<input type="submit" value="SIGNUP">
+					<input type="submit" value="SIGN UP">
 				</form>
 
 			</div>
 		</div>
 		
 	</div>
+	<br><br><br><br><br>
 	<!-- //main -->
 	<center><div class="footer-area-bottom">
                     <div class="container">

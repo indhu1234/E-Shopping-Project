@@ -1,13 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ include file="header.jsp"%>
+ 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style>
+#f
+{
+ font-size:18px;
+ font-family:Arial;
+ }
+</style>
 </head>
-<body>
+<body style="background-color:lightblue;">
 	<div class="container">
 	<center><h1>Product Details</h1></center>
 	<div  class="row text-center text-lg-left">
@@ -52,10 +61,10 @@
 			<form action="${url }" >
 			<table>
 			<tr><img class="img-fluid img-thumbnail" id="img" src="<c:url value='/resources/images/${productObj.id}.jpg'></c:url>"></tr>
-			<tr><b>Product Name:</b>${productObj.productname }</tr>
-			<tr><b>Product Description:</b>${productObj.productdesc }</tr>
-			<tr><b>Price:</b>${productObj.price } /${productObj.units }</tr>
-			<tr><b>Quantity:</b>${productObj.quantity }</tr>
+			<tr><div id="f"><b>Product Name:</b>${productObj.productname }</div></tr>
+			<tr><div id="f"><b>Product Description:</b>${productObj.productdesc }</div></tr>
+			<tr><div id="f"><b>Price:</b>${productObj.price } /${productObj.units }</div></tr>
+			<tr><div id="f"><b>Quantity:</b>${productObj.quantity }</div></tr>
 			</table>
 			<%-- <b>Category:</b>${productObj.category.categoryName}<br> --%>
 			<c:if test="${productObj.quantity==0 }">

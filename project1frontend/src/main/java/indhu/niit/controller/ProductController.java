@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,14 +21,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import indhu.niit.dao.CategoryDao;
 import indhu.niit.dao.ProductDao;
 import indhu.niit.dao.SupplierDao;
+import indhu.niit.models.Category;
 import indhu.niit.models.Product;
 
 @Controller
 public class ProductController {
 	@Autowired
 	private ProductDao productDao;
+	
+	@Autowired
+	private CategoryDao categoryDao;
+	
 	
 	@Autowired
 	private SupplierDao supplierdao;
@@ -42,8 +49,9 @@ public String getAllProducts(Model model){
 	//value - List<Product> products is the data
 	model.addAttribute("productsList",products);
 	//                 attributename   data
-	return "listofproducts";//logical view name
+	/*return "listofproducts";*///logical view name
 	//in listofproducts.jsp,access the model attribute "productsList"
+	return "listofproducts";
 }
 
 @RequestMapping(value="/all/getproduct/{id}")
@@ -88,6 +96,8 @@ public String addProduct(@Valid @ModelAttribute(name="product") Product product,
 
 	if(result.hasErrors()){//if it is true, result has errors
 		model.addAttribute("categories",productDao.getAllCategories());
+		List<Product> listproducts=productDao.getAllProducts();
+		model.addAttribute("productsList",listproducts);
 		return "productform";
 	}
 	
@@ -157,6 +167,76 @@ public String searchByCategory(@RequestParam String searchCondition ,Model model
 	return "listofproducts";
 	
 }
+public LinkedHashMap<Integer,String> getCategoryList(List<Category> categoryList)
+{
+	LinkedHashMap<Integer,String> categoryList1=new LinkedHashMap<Integer,String>();
+	
+	for(Category category:categoryList)
+	{
+		categoryList1.put(category.getCategoryId(), category.getCategoryName());
+	}
+	return categoryList1;
+}
+@RequestMapping(value="/all/vegetables")
+public String showvegetables(Model m)
+{
+	List<Product> productList=productDao.listProductsCategoryWise(2);
+	m.addAttribute("productsList", productList);
+	
+	List<Category> categoryList=categoryDao.listCategory();
+	m.addAttribute("categoryList",this.getCategoryList(categoryList));
+	
+	return "vegetables";
+}
+@RequestMapping(value="/all/fruits")
+public String showfruits(Model m)
+{
+	List<Product> productList=productDao.listProductsCategoryWise(3);
+	m.addAttribute("productsList", productList);
+	
+	List<Category> categoryList=categoryDao.listCategory();
+	m.addAttribute("categoryList",this.getCategoryList(categoryList));
+	
+	return "fruits";
+}
+
+@RequestMapping(value="/all/nuts")
+public String shownuts(Model m)
+{
+	List<Product> productList=productDao.listProductsCategoryWise(6);
+	m.addAttribute("productsList", productList);
+	
+	List<Category> categoryList=categoryDao.listCategory();
+	m.addAttribute("categoryList",this.getCategoryList(categoryList));
+	
+	return "nuts";
+}
+@RequestMapping(value="/all/oils")
+public String showoils(Model m)
+{
+	List<Product> productList=productDao.listProductsCategoryWise(4);
+	m.addAttribute("productsList", productList);
+	
+	List<Category> categoryList=categoryDao.listCategory();
+	m.addAttribute("categoryList",this.getCategoryList(categoryList));
+	
+	return "oils";
+}
+@RequestMapping(value="/all/rice")
+public String showrice(Model m)
+{
+	List<Product> productList=productDao.listProductsCategoryWise(5);
+	m.addAttribute("productsList", productList);
+	
+	List<Category> categoryList=categoryDao.listCategory();
+	m.addAttribute("categoryList",this.getCategoryList(categoryList));
+	
+	return "rice";
+}
+
+
+
+
 }
 
 

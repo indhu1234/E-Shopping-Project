@@ -2,13 +2,14 @@
     pageEncoding="ISO-8859-1"%>
     
     <%@ include file="header.jsp"%>
+     <%-- <%@ include file="UserHome.jsp"%> --%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body style="background-color:orange;font-family:Arial;color:black;font-size:20px;">
 <form action="<c:url value ='/UpdateCategory'/>"  method="post">
 	
 

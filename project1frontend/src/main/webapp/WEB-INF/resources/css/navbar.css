@@ -1,6 +1,9 @@
 @charset "ISO-8859-1";
 
 
+
+
+
 nav img{
     height: 6rem;
     width : 6rem;
@@ -25,27 +28,29 @@ nav img{
 ul{
         padding: 10;
         list-style: none;
-        background: #ff8000;
+        
     }
     ul li{
         display: inline-block;
         position: relative;
         line-height: 21px;
-        text-align: center;
+        
+        
     }
     ul li a{
-        display: inline-block;
+        display: center;
         padding: 8px 25px;
-        color: #333;
+        color:white;
+        text-align: center;
         text-decoration: none;
     }
     ul li a:hover{
-        color: #000000;
-        background: #56cfbe;
+       
+        background: #ffffff;
     }
     ul li ul.dropdown{
         min-width: 100%; /* Set width of the dropdown */
-        background: #80ff80;
+       
         display: none;
         position: absolute;
         z-index: 999;
@@ -53,7 +58,7 @@ ul{
     }
     ul li:hover ul.dropdown{
         display: block;	/* Display the dropdown */
-         background:#ff8000;
+         
     }
     
    #img {
@@ -70,15 +75,16 @@ ul{
         text-align: center;
     }
     .wrapper ul {
-        display: inline-block;
-        margin: 0;
-        padding: 0;
+        
+        margin: 10;
+        padding: 10;
         /* For IE, the outcast */
         zoom:1;
-        *display: inline;
+        
     }
     .wrapper li {
         float: center;
+        color:white;
        
     }
     

@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ include file="header.jsp"%>
+     <%-- <%@ include file="UserHome.jsp"%> --%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body style="background-color:orange;font-size:20px;font-family:Arial;">
 <h2 align="center">Category Page</h2>
 
 	<form action="<c:url value ='/InsertCategory'/>"  method="post">
@@ -15,7 +16,7 @@
 
 			<table align="center">
 				<tr>
-					<td colspan="2">Category Information</td>
+					<td align="center" colspan="2"><h2>Category Information</h2></td>
 				</tr>
 				<tr>
 					<td> Name of the Category</td>

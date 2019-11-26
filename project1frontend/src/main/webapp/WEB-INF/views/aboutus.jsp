@@ -7,32 +7,27 @@
 <title> Online Shopping</title>
 </head>
 <%@include file="header.jsp" %>
-<body>
-<pre>
-<b>About Us </b>
+ <%-- <%@ include file="UserHome.jsp"%> --%>
+<body style="background-color:green;color:white;">
 
-<p>
-    Here varieties of products are available.
-    <h2>
-    
-    Services
-    </h2>
+<h2><center><b>About Us </b></center></h2>
+<p><h3> Here varieties of products are available.</h3>
+    <h2> Services </h2>
   <ul>
-   
   <li>Fast Home Delivery
   <li>Online Shopping
   <li>Cash on Delivery
-  
   </ul>
+  <h2>Available Products</h2>
+         <h4>Vegetables</h4>
+         <h4>Fruits</h4>
+         <h4>Nuts</h4>
+         <h4>Grocerries</h4>
 
-<h2>Available Products</h2>
-<h3>Vegetables</h3>
-<h3>Fruits</h3>
-<h3>Nuts</h3>
-<h3>Grocerries</h3>
 
 
-</pre>
+
+
 <center><div class="footer-area-bottom">
                     <div class="container">
                         <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>

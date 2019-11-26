@@ -5,6 +5,8 @@
     <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
     
     <%@ include file="header.jsp"%>
+     <%-- <%@ include file="UserHome.jsp"%> --%>
+    
 <!DOCTYPE html>
 <html>
 <head>
