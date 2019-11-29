@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import indhu.niit.dao.CartItemDao;
+import indhu.niit.dao.CategoryDao;
 import indhu.niit.dao.ProductDao;
 import indhu.niit.models.CartItem;
 
@@ -21,6 +22,9 @@ public class HomeController {
 private ProductDao productDao;	
    @Autowired
 	private CartItemDao cartItemDao;
+   
+   @Autowired
+   private CategoryDao categoryDao;
 public HomeController(){
 	System.out.println("HomeController bean is instantiated");
 }
@@ -28,7 +32,8 @@ public HomeController(){
 //by this handler method homePage()
 @RequestMapping(value="/home")
 public String homePage(HttpSession session,@AuthenticationPrincipal Principal principal){
-	session.setAttribute("categories",productDao.getAllCategories());
+	/*session.setAttribute("categories",productDao.getAllCategories());*/
+	session.setAttribute("categories", categoryDao.listCategory());
 	if(principal!=null){
 	//String email=principal.getName();
 		String username=(String) session.getAttribute("username");

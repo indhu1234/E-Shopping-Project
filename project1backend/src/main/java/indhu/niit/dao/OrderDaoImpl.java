@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import indhu.niit.models.OrderDetail;
+import indhu.niit.models.UserDetail;
 
 @Repository("OrderDao")
 @Transactional
@@ -44,6 +45,33 @@ public class OrderDaoImpl implements OrderDao
 			return true;
 		else
 			return false;
+	}
+
+	@Override
+	public OrderDetail getOrder(int orderid)
+	{
+	
+		Session session=sessionFactory.openSession();
+		OrderDetail orderdetail=(OrderDetail) session.get(OrderDetail.class, orderid);
+		session.close();
+		return orderdetail;
+	}
+
+	@Override
+	public boolean updateOrder(OrderDetail orderdetail) 
+	{
+		System.out.println("Entered Update order");
+		try
+		{
+			System.out.println("Try block in update order");
+			sessionFactory.getCurrentSession().update(orderdetail);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	   
 	}
 
 }

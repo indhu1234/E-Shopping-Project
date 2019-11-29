@@ -133,10 +133,15 @@ $('.message a').click(function(){
      
     </form>
   </div>
+ <%--  <center><h4><a style="color:black;" href="<c:url value='/receipt/shipping'></c:url>" >Need to Change Shipping Address?</a></h4></center> --%>
 </div>
+<br>
+
+<br><br><br><br><br><br>
+
 <center><div class="footer-area-bottom">
                     <div class="container">
-                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                        <p style="color:black;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
                     </div>
                 </div></center>
 

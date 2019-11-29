@@ -826,6 +826,7 @@ input.checkbox:checked:after {
 		</div>
 		
 	</div>
+	
 	<br><br><br><br><br>
 	<!-- //main -->
 	<center><div class="footer-area-bottom">

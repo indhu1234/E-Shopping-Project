@@ -25,10 +25,10 @@
 
             <div  id="tab" class="well col-xs-20 col-sm-20 col-md-15 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
             <div >
-              <h1 align="center">Invoice</h1>
+              <h1 align="center">Updated Invoice</h1>
                        </div>
                   
-                        ORDER ID: ${order.orderId }
+                        ORDER ID: ${orderid }
                         <div class="row">
                     	<div class="col-xs-9" >
     				<address>
@@ -44,7 +44,7 @@
     			<div >
     				<address>
     					<strong>Total shopping Amount :</strong><br/>
-    					${total_Amount+ (total_Amount/10)}/-<br/>
+    					${total_Amount+(total_Amount/10)}/-<br/>
     				</address>
     			</div>
     			
@@ -52,14 +52,14 @@
     			<div class="col-xs-13">
     				<address>
     					<strong>Payment Method:</strong><br/>
-    					${order.pmode}<br/>
+    					${pmode}<br/>
     				</address>
     			</div>
     	
     			<div class="col-xs-10">
     				<address>
     					<strong>Order Date:</strong><br>
-    					${order.orderDate}<br><br>
+    					${date}<br><br>
     				</address>
     			</div>
     		</div>
@@ -90,7 +90,7 @@
                                 </thead>
                                 <tbody>
                               
-                                <c:forEach var="cartItem" items="${listCartItems}">
+                                <c:forEach items="${listCartItems}" var="cartItem">
                                     <tr>
                             <c:url value="/resources/images/${cartItem.product.id }.jpg" var="imgUrl"></c:url>
                                         <td><img src="${imgUrl }" height="50px" width="50px">  </td>
@@ -130,28 +130,16 @@
         
 <div>
 
-<h4><strong>Shipping Address : </strong></h4> ${street},${city }, ${zip }</br>
-    					${mobile }</br>	
+<h4><strong>Shipping Address : </strong></h4> ${apartmentnumber1}, ${street1}, ${city1 }, ${zip1 }</br>
+    					</br>	
 
 </div>
  </div>
         
-  
-
        <h1 align="center">Thank you!!! </h1>
     </div>
 </div>
 </div>
-
-
-
-<br><br><br><br><br>
-<center><div class="footer-area-bottom">
-                    <div class="container">
-                        <p style="color:black;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
-                    </div>
-                </div></center>
-
 <%-- <div class="container">
 
     <div class="row">
@@ -232,8 +220,6 @@
 </div>
 
  --%>
- 
- <br><br><br><br><br>
 <center><div class="footer-area-bottom">
                     <div class="container">
                         <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>

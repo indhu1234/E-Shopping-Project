@@ -157,9 +157,41 @@ public String updateProduct(@Valid @ModelAttribute Product product,BindingResult
 	}
 	return "redirect:/all/getallproducts";
 }
+
+@RequestMapping(value="/all/category/{categoryId }")
+public String showproductcategorywise(@RequestParam int categoryId,Model m,HttpServletRequest request)
+{
+	
+	System.out.println("Show Category Id : "+categoryId);
+    /*m.addAttribute("productsList",productDao.listProductsCategoryWise(categoryid));*/
+	List<Product> productList=productDao.listProductsCategoryWise(categoryId);
+	m.addAttribute("productsList", productList);
+	
+	List<Category> categoryList=categoryDao.listCategory();
+	m.addAttribute("categoryList",this.getCategoryList(categoryList));
+	
+	
+	return "viewproduct";
+
+}
+
+@RequestMapping(value="/all/productdisplay")
+public String productdisplay(Model m)
+{
+	List<Product> productlist=productDao.getAllProducts();
+	m.addAttribute("productsList",productlist);
+	
+	List<Category> categorylist=categoryDao.listCategory();
+	m.addAttribute("categoryList",this.getCategoryList(categorylist));
+	 
+	return "listofproducts";
+}
+
+
+
 @RequestMapping(value="/all/searchByCategory")
-public String searchByCategory(@RequestParam String searchCondition ,Model model){
-	if(searchCondition.equals("All"))
+public String searchByCategory(@RequestParam int searchCondition ,Model model){
+	if(searchCondition==0)
 		model.addAttribute("searchCondition","");
 	else
 	model.addAttribute("searchCondition",searchCondition);
@@ -177,6 +209,9 @@ public LinkedHashMap<Integer,String> getCategoryList(List<Category> categoryList
 	}
 	return categoryList1;
 }
+
+
+
 @RequestMapping(value="/all/vegetables")
 public String showvegetables(Model m)
 {

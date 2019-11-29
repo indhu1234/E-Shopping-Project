@@ -84,10 +84,11 @@
 			</div>
 		</div>
 	</div>
+	<br><br><br><br>
 	<%-- <a href="<c:url value='/all/getallproducts'></c:url>">Browse all products</a> --%>
  <center><div class="footer-area-bottom">
                     <div class="container">
-                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                        <p style="color:black;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
                     </div>
                 </div></center>
  

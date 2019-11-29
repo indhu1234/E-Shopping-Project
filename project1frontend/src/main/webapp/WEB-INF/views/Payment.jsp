@@ -33,10 +33,10 @@ $(function () {
                         <center><h2 class="text-xs-center">Payment</h2></center>
                     </div>
                        
-                        
+                       <div> 
                         <input type="radio" name="pmode" value="COD"/>Cash on Delivery
 				<input type="radio" name="pmode" value="CC"/>Credit Card
-                        
+                      </div>  
                         <img class="img-responsive cc-img" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
                     </div>
                 </div>
@@ -393,7 +393,7 @@ $(function () {
 
 </div>
  --%>
- 
+ <br><br><br><br>
  <center><div class="footer-area-bottom">
                     <div class="container">
                         <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>

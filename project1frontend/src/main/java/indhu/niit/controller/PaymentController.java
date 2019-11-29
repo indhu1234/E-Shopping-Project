@@ -1,5 +1,6 @@
 package indhu.niit.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -112,7 +113,14 @@ public class PaymentController
 		m.addAttribute("order", orderDetail);
 		
 		//m.addAttribute("address", userDAO.getUser(username).getAddress());
+
 		
+		ShippingAddress address1=new ShippingAddress();
+		m.addAttribute("apartmentnumber1",address1.getApartmentnumber());
+		m.addAttribute("street1",address1.getStreetname());
+		m.addAttribute("city1",address1.getCity());
+		m.addAttribute("zip1",address1.getZipcode());
+
 			
 		return "Receipt";
 	}
@@ -134,14 +142,7 @@ public class PaymentController
 	}
 
 @RequestMapping(value="/receipt/shipping")
-public String showshipping(Model m)
-{
-	ShippingAddress address=new ShippingAddress();
-	m.addAttribute("shippingaddress",address);
-	return "shippingaddress";
-}
-@RequestMapping(value="/receipt/address")
-public String shipping(HttpSession session,@RequestParam("apartmentnumber") String apartmentnumber,@RequestParam("streetname") String street, @RequestParam("city") String city, @RequestParam("state") String state, @RequestParam("country") String country,@RequestParam("zipcode") String zipcode, Model m)
+public String showshipping(Model m,HttpSession session)
 {
 	SecurityContext scontext=SecurityContextHolder.getContext();
 	Authentication authentication=scontext.getAuthentication();
@@ -149,8 +150,35 @@ public String shipping(HttpSession session,@RequestParam("apartmentnumber") Stri
 
 	session.setAttribute("username", username);
 
+	
 	String uname=(String)session.getAttribute("username");
+	
+	List<CartItem> cartItemList=cartItemDao.listCartItems(uname);
+	m.addAttribute("listCartItems", cartItemList);
+	
+	
+	double total_Amount=this.totalCartValue(cartItemList);
+	
+	m.addAttribute("total_Amount",total_Amount);
 
+	ShippingAddress address=new ShippingAddress();
+	m.addAttribute("shippingaddress",address);
+	return "shippingaddress";
+}
+@RequestMapping(value="/receipt/address")
+public String shipping(@RequestParam("apartmentnumber") String apartmentnumber,@RequestParam("streetname") String street, @RequestParam("city") String city, @RequestParam("state") String state, @RequestParam("country") String country,@RequestParam("zipcode") String zipcode, HttpSession session,Model m)
+{
+   
+	SecurityContext scontext=SecurityContextHolder.getContext();
+	Authentication authentication=scontext.getAuthentication();
+	String username=authentication.getName();
+
+	session.setAttribute("username", username);
+
+	
+	String uname=(String)session.getAttribute("username");
+	
+	
 	ShippingAddress address1=new ShippingAddress();
 	address1.setApartmentnumber(apartmentnumber);
 	address1.setCity(city);
@@ -159,14 +187,15 @@ public String shipping(HttpSession session,@RequestParam("apartmentnumber") Stri
 	address1.setState(state);
 	address1.setStreetname(street);
 	address1.setZipcode(zipcode);
+	address1.setUsername(username);
 	shipping.addshipping(address1);
-	List<ShippingAddress> Listaddress1=shipping.listAddress();
 	
+	
+		
 	m.addAttribute("apartmentnumber1",address1.getApartmentnumber());
 	m.addAttribute("street1",address1.getStreetname());
 	m.addAttribute("city1",address1.getCity());
 	m.addAttribute("zip1",address1.getZipcode());
-	
-	return "Receipt";
+		return "updateReceipt";
 }
 }

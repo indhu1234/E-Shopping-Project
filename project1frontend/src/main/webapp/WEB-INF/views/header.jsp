@@ -142,12 +142,18 @@
 			</div><hr>
 			
 	 <nav >
-		<ul align="center"> 
-        <li><a href="<c:url value='/all/vegetables'></c:url>">Vegetables</a></li>
+		<ul align="center">
+	<c:forEach items="${categories }" var="category">
+		<%-- <li><a href="<c:url value='/all/productdisplay'></c:url>">${category.categoryName }</a></li> --%>
+		
+		<li><a href="<c:url value='/all/searchByCategory?searchCondition=${category.categoryId }'></c:url>">${category.categoryName }</a></li> 
+        <%-- <li><a href="<c:url value='/all/vegetables'></c:url>">Vegetables</a></li>
         <li><a href="<c:url value='/all/fruits'></c:url>">Fruits</a></li>
         <li><a href="<c:url value='/all/nuts'></c:url>">Nuts</a></li>
         <li><a href="<c:url value='/all/rice'></c:url>">Rice</a></li>
         <li><a href="<c:url value='/all/oils'></c:url>">Oil Items</a></li>
+ --%>       
+    </c:forEach>
     </ul>
     
     	</nav>
