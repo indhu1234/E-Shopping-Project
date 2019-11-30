@@ -32,12 +32,12 @@
                         <div class="row">
                     	<div class="col-xs-9" >
     				<address>
-    				<strong>Billed To:</strong>
-       				    	${customer}</br>
-    						${street}</br>
-    						${city }</br>
-    						${zip }</br>
-    						${mobile }</br>
+    				<strong>Billed To:</strong><br>
+       				    	${user.customerName}</br>
+    						${user.street}</br>
+    						${user.city }</br>
+    						${user.zip }</br>
+    						${user.mobileNo }</br>
     				</address>
     			</div>
     			
@@ -130,8 +130,17 @@
         
 <div>
 
-<h4><strong>Shipping Address : </strong></h4> ${street},${city }, ${zip }</br>
-    					${mobile }</br>	
+<h4><strong>Shipping Address : </strong></h4>
+<form action="<c:url value='/receipt/ship/${id}'></c:url>" method="post">
+<input type="text" name="dno" id="dno" value="${addr.apartmentnumber}"><br>
+<input type="text" name="street" id="street" value="${addr.streetname }"><br>
+<input type="text" name="city" id="city" value="${addr.city }"><br>
+<input type="text" name="zip" id="zip" value="${addr.zipcode }"><br>
+<input type="text" name="mob" id="mob" value="${addr.mobile }"><br>
+<input class="btn btn primary" type="submit" value="Update Address">
+</form>
+
+ </br>	
 
 </div>
  </div>
@@ -148,7 +157,7 @@
 <br><br><br><br><br>
 <center><div class="footer-area-bottom">
                     <div class="container">
-                        <p style="color:black;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                        <p style="color:black;"><b></b>© 2019 Grocerry World All Rights Reserved. &nbsp;</b></p>
                     </div>
                 </div></center>
 
@@ -233,12 +242,5 @@
 
  --%>
  
- <br><br><br><br><br>
-<center><div class="footer-area-bottom">
-                    <div class="container">
-                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
-                    </div>
-                </div></center>
-
 </body>
 </html>

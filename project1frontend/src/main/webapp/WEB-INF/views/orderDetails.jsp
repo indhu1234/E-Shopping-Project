@@ -10,6 +10,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style>
+th
+{
+   font-family:Arial Black;
+   font-size:16px;
+}
+</style>
 </head>
 <body>
 <div class="container-wrapper">
@@ -83,10 +90,13 @@
                             <span class="glyphicon glyphicon-shopping-cart"></span> Edit Cart
                         </a></td>
                         <td>
-                         <a href="<c:url value='/cart/payment'></c:url>" class="btn btn-default" />
+                         <a href="<c:url value='/cart/shipping'></c:url>" class="btn btn-default" />
                            Checkout <span class="glyphicon glyphicon-play"></span>
                         </button></td>
                     </tr>
+                    <tr><td>
+                    <%-- <div align="right"><a href="<c:url value='/cart/shipping'></c:url>">Do you need to give shipping address?</a></div> --%>
+                    </td></tr>
                 </tbody>
             </table>
         </div>
@@ -196,7 +206,7 @@
 
 <center><div class="footer-area-bottom">
                     <div class="container">
-                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                        <p style="color:black;"><b>© 2019 Grocerry World All Rights Reserved. &nbsp;</b></p>
                     </div>
                 </div></center>
 

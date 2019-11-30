@@ -25,19 +25,20 @@
 
             <div  id="tab" class="well col-xs-20 col-sm-20 col-md-15 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
             <div >
-              <h1 align="center">Updated Invoice</h1>
+              <h1 align="center"> Invoice</h1>
                        </div>
                   
-                        ORDER ID: ${orderid }
+                        ORDER ID: ${order.orderId }
                         <div class="row">
                     	<div class="col-xs-9" >
     				<address>
-    				<strong>Billed To:</strong>
-       				    	${customer}</br>
-    						${street}</br>
-    						${city }</br>
-    						${zip }</br>
-    						${mobile }</br>
+    				<strong>Billed To:</strong><br>
+       				    	${user.customerName}</br>
+    						${user.street}</br>
+    						${user.city }</br>
+    						${user.zip }</br>
+    						${user.mobileNo }</br>
+    				
     				</address>
     			</div>
     			
@@ -59,7 +60,7 @@
     			<div class="col-xs-10">
     				<address>
     					<strong>Order Date:</strong><br>
-    					${date}<br><br>
+    					${order.orderDate}<br><br>
     				</address>
     			</div>
     		</div>
@@ -130,7 +131,11 @@
         
 <div>
 
-<h4><strong>Shipping Address : </strong></h4> ${apartmentnumber1}, ${street1}, ${city1 }, ${zip1 }</br>
+<h4><strong>Shipping Address : </strong></h4>
+ ${addr.apartmentnumber}, ${addr.streetname}<br>
+ ${addr.city }<br>
+ ${addr.zipcode }<br>
+ ${addr.mobile }</br>
     					</br>	
 
 </div>

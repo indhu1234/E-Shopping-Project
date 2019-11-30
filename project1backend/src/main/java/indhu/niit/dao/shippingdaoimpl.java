@@ -42,4 +42,41 @@ public class shippingdaoimpl implements shippingdao
 		return Listaddress;
 	}
 
+	@Override
+	public ShippingAddress getAddressById(int id) {
+		Session session=sessionFactory.openSession();
+		ShippingAddress address=(ShippingAddress) session.get(ShippingAddress.class, id);
+		session.close();
+		return address;
+	}
+
+	@Override
+	public boolean updateAddress(ShippingAddress address) 
+	{
+
+		try
+		{
+			sessionFactory.getCurrentSession().update(address);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	
+		
+		
+	}
+
+	
+
+	@Override
+	public ShippingAddress getAddressbyuser(String username) {
+	
+		Session session=sessionFactory.openSession();
+		ShippingAddress address=(ShippingAddress) session.get(ShippingAddress.class,username);
+		session.close();
+		return address;
+	}
+
 }

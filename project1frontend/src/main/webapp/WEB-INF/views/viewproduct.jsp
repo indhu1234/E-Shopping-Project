@@ -11,9 +11,19 @@
 <style>
 #f
 {
+  
  font-size:18px;
  font-family:Arial;
+ width:400%;
+ 
+}
+
+ #img
+ {
+   width:400px;
+   height:400px;
  }
+ 
 </style>
 </head>
 <body style="background-color:lightblue;">
@@ -60,26 +70,27 @@
 			<c:url value="/cart/addtocart/${productObj.id}" var="url"></c:url>
 			<form action="${url }" >
 			<table>
-			<tr><img class="img-fluid img-thumbnail" id="img" src="<c:url value='/resources/images/${productObj.id}.jpg'></c:url>"></tr>
-			<tr><div id="f"><b>Product Name:</b>${productObj.productname }</div></tr>
-			<tr><div id="f"><b>Product Description:</b>${productObj.productdesc }</div></tr>
-			<tr><div id="f"><b>Price:</b>${productObj.price } /${productObj.units }</div></tr>
-			<tr><div id="f"><b>Quantity:</b>${productObj.quantity }</div></tr>
-			</table>
+			<tr><td rowspan="8"><img id="img" src="<c:url value='/resources/images/${productObj.id}.jpg'></c:url>"></td></tr>
+			<tr><td><div id="f"><b>Product Name:</b>${productObj.productname }</div></td></tr>
+			<tr><td><div id="f"><b>Product Description:</b>${productObj.productdesc }</div></td></tr>
+			<tr><td><div id="f"><b>Price:</b>${productObj.price } /${productObj.units }</div></td></tr>
+			<tr><td><div id="f"><b>Quantity:</b>${productObj.quantity }</div></td></tr>
+			
 			<%-- <b>Category:</b>${productObj.category.categoryName}<br> --%>
 			<c:if test="${productObj.quantity==0 }">
 			<button class="btn btn-primary btn-lg" disabled>Out Of Stock</button>
 			</c:if>
 			<c:if test="${productObj.quantity>0 }">
 			<security:authorize access="hasRole('ROLE_USER')">
-			Enter Quantity:<input type="number" min="1" max="${productObj.quantity }" name="requestedQuantity">
+			<tr><td><div id="f"><b>Enter Quantity:<input type="number" min="1" max="${productObj.quantity }" name="requestedQuantity"></b>
 			<select>
 			<option>Kg</option>
 			<option>Ltr</option>
-			</select>
-			<button class="btn btn-primary btn-lg" type="submit"><span class="glyphicon glyphicon-shopping-cart" ></span>Add To Cart</button>
+			</select></div></td></tr></tr>
+			<tr><td></td><td><button class="btn btn-primary btn-lg" type="submit"><span class="glyphicon glyphicon-shopping-cart" ></span>Add To Cart</button></td></tr>
 			</security:authorize>
 			</c:if>
+			</table>
 			</form>
 			</div>
 		</div>
@@ -88,7 +99,7 @@
 	<%-- <a href="<c:url value='/all/getallproducts'></c:url>">Browse all products</a> --%>
  <center><div class="footer-area-bottom">
                     <div class="container">
-                        <p style="color:black;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                        <p style="color:black;"><b>© 2019 Grocerry World All Rights Reserved. &nbsp;</b></p>
                     </div>
                 </div></center>
  

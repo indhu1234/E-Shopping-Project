@@ -74,7 +74,7 @@
 </div>
 <center><div class="footer-area-bottom">
                     <div class="container">
-                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                        <p style="color:white;"><b>© 2019 Grocerry World All Rights Reserved. &nbsp;</b></p>
                     </div>
                 </div></center>
 

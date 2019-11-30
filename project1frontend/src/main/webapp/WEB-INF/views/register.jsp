@@ -808,7 +808,7 @@ input.checkbox:checked:after {
 					<input class="text" type="text" name="username" placeholder="Username" id="username" required=""><br>
 					<input class="text email" type="email" name="emailid" placeholder="Email" id="email" required=""><br>
 					<input class="text" type="password" name="password" placeholder="Password" id="password" required=""><br>
-					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required=""><br>
+					<!-- <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required=""><br> -->
 					<input class="text" type="text" name="street" placeholder="Street" id="street" required=""><br>
 					<input class="text" type="text" name="city" placeholder="city" id="city" required=""><br>
 					<input class="text" type="text" name="zip" placeholder="zip" id="zip" required=""><br>
@@ -831,7 +831,7 @@ input.checkbox:checked:after {
 	<!-- //main -->
 	<center><div class="footer-area-bottom">
                     <div class="container">
-                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                        <p style="color:black;"><b>© 2019 Grocerry World All Rights Reserved. &nbsp;</b></p>
                     </div>
                 </div></center>
 	

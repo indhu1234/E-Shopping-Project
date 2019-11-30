@@ -8,6 +8,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style>
+th
+{
+  font-family:Arial;
+  font-size:12px;
+}
+
+</style>
 </head>
 <body>
 
@@ -131,10 +139,10 @@ Total Price : ${grandTotal }
 </c:if>
 </div>
  --%>
-
+<br><br><br><br>
 <center><div class="footer-area-bottom">
                     <div class="container">
-                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                        <p style="color:black;"><b>© 2019 Grocerry World All Rights Reserved. &nbsp;</b></p>
                     </div>
                 </div></center>
 

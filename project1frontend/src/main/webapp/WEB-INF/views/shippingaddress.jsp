@@ -27,12 +27,16 @@
 </script>
 
 </head>
-<body>
+<body style="background-color:pink;font-family:Arial Black;font-size:15px;">
 <h2><p align="center"><b>Shipping Address</b></p></h2>
+
 <div class="container">
-<c:url var="url" value="/receipt/address"></c:url>
+<c:url var="url" value="/cart/address"></c:url>
 <form action="${url }" method="post">
-<input type="hidden" name="id" value=${address.id }  > <br>
+
+
+<input type="hidden" name="id" value=${address.id }  ><br>
+
 Enter Apartment Number :<input type="text" name="apartmentnumber"><br>
 Enter Street Name :<input type="text" name="streetname"><br>
 Enter City:<input type="text" name="city"><br>
@@ -41,9 +45,9 @@ Enter State :<input type="text" name="state"><br>
 Enter Country :<input type="text" name="country"><br>
 
 Enter Zip Code :<input type="text" name="zipcode"><br>
-<br>
-<input type="submit" value="Submit">
-<input type="reset" value="Reset">
+Enter Mobile Number : <input type="text" name="mob"><br>
+<input class="btn btn-primary" type="submit" value="Submit">
+<input class="btn btn-primary" type="reset" value="Reset"><br>
 
 <%-- 	
 <form:hidden path="id"/>
@@ -80,7 +84,7 @@ Enter Zip Code :<input type="text" name="zipcode"><br>
  <br><br><br><br><br><br>
 <center><div class="footer-area-bottom">
                     <div class="container">
-                        <p style="color:white;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                        <p style="color:black;"><b>© 2019 Grocerry World All Rights Reserved. &nbsp;</b></p>
                     </div>
                 </div></center>
 

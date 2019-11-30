@@ -141,7 +141,7 @@ $('.message a').click(function(){
 
 <center><div class="footer-area-bottom">
                     <div class="container">
-                        <p style="color:black;">© 2019 Grocerry World All Rights Reserved. &nbsp;</p>
+                        <p style="color:black;"><b>© 2019 Grocerry World All Rights Reserved. &nbsp;</b></p>
                     </div>
                 </div></center>
 

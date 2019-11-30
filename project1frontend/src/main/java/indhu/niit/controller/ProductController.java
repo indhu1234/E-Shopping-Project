@@ -51,7 +51,7 @@ public String getAllProducts(Model model){
 	//                 attributename   data
 	/*return "listofproducts";*///logical view name
 	//in listofproducts.jsp,access the model attribute "productsList"
-	return "listofproducts";
+	return "Allproducts";
 }
 
 @RequestMapping(value="/all/getproduct/{id}")
@@ -191,11 +191,14 @@ public String productdisplay(Model m)
 
 @RequestMapping(value="/all/searchByCategory")
 public String searchByCategory(@RequestParam int searchCondition ,Model model){
+	Category cat=new Category();
+	model.addAttribute("categoryname",categoryDao.getCategory(searchCondition).getCategoryName());
 	if(searchCondition==0)
 		model.addAttribute("searchCondition","");
 	else
 	model.addAttribute("searchCondition",searchCondition);
 	model.addAttribute("productsList",productDao.getAllProducts());
+	model.addAttribute("products",productDao.listProductsCategoryWise(searchCondition));
 	return "listofproducts";
 	
 }
