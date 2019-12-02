@@ -28,10 +28,10 @@
 			      <tr><div align="center">Stock :${product.quantity}</div></tr>
 			      
 		        <security:authorize access="hasRole('ROLE_ADMIN')">
-				<a href="<c:url value='/admin/deleteproduct/${p.id }'></c:url>">
+				<a href="<c:url value='/admin/deleteproduct/${product.id }'></c:url>">
 				<span class="glyphicon glyphicon-trash"></span></a> 
 								
-			<a href="<c:url value='/admin/getupdateform/${p.id }'></c:url>"><span class="glyphicon glyphicon-pencil"></span></a>
+			<a href="<c:url value='/admin/getupdateform/${product.id }'></c:url>"><span class="glyphicon glyphicon-pencil"></span></a>
 			</security:authorize>
 
 			</table>

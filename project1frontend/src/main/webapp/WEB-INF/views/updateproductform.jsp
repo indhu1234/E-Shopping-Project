@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body style="background-color:green;font-family:Arial;color:white;font-size:20px;">
+<body style="background-color:green;font-family:Arial;color:Black;font-size:20px;">
 <div class="container">
 <c:url value="/admin/updateproduct" var="url"></c:url>
 <form:form modelAttribute="product" action="${url }" method="post" enctype="multipart/form-data">
@@ -35,16 +35,16 @@
 			<td> Price</td>
 			<td><form:input path="price" value="${product.price }"></form:input>
 			<form:errors path="price" cssStyle="color:white"></form:errors>
-			</td><td>
-				<form:select path="units">
-			<form:option value="Kg"></form:option>
-			<form:option value="Ltr"></form:option>
-			</form:select>
 			</td></tr>
 			<tr><td> Quantity</td>
 			<td><form:input path="quantity" type="number" value="${product.quantity}"></form:input>
 			<form:errors path="quantity" cssStyle="color:white"></form:errors></td>
-				
+			<td>
+				<form:select path="units">
+			<form:option value="Kg"></form:option>
+			<form:option value="Ltr"></form:option>
+			</form:select>
+			</td>	
 		
 			
 			
@@ -64,7 +64,7 @@
 			
 			<tr>
 			<td></td>
-			<td><input type="submit" value="Edit Product"></td>
+			<td><input type="submit" value="Update Product"></td>
 			</tr>
 
 
@@ -72,6 +72,7 @@
 
 	</form:form>
 </div>
+<br><br><br><br><br>
 <center><div class="footer-area-bottom">
                     <div class="container">
                         <p style="color:white;"><b>© 2019 Grocerry World All Rights Reserved. &nbsp;</b></p>
